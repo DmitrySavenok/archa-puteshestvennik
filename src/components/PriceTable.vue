@@ -1,115 +1,268 @@
 <template>
-<div id="demo">
-  <h1>Price table</h1>
-
-  <div class="table-responsive-vertical shadow-z-1">
-  <!-- Table starts here -->
-  <table id="table" class="table table-hover table-mc-light-blue">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Link</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-title="ID">1</td>
-          <td data-title="Name">Material Design Color Palette</td>
-          <td data-title="Link">
-            <a href="https://github.com/zavoloklom/material-design-color-palette" target="_blank">GitHub</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">2</td>
-          <td data-title="Name">Material Design Iconic Font</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/uqCsB" target="_blank">Codepen</a>
-            <a href="https://github.com/zavoloklom/material-design-iconic-font" target="_blank">GitHub</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">3</td>
-          <td data-title="Name">Material Design Hierarchical Display</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/eNaEBM" target="_blank">Codepen</a>
-            <a href="https://github.com/zavoloklom/material-design-hierarchical-display" target="_blank">GitHub</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">4</td>
-          <td data-title="Name">Material Design Sidebar</td>
-          <td data-title="Link"><a href="http://codepen.io/zavoloklom/pen/dIgco" target="_blank">Codepen</a></td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">5</td>
-          <td data-title="Name">Material Design Tiles</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/wtApI" target="_blank">Codepen</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">6</td>
-          <td data-title="Name">Material Design Typography</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/IkaFL" target="_blank">Codepen</a>
-            <a href="https://github.com/zavoloklom/material-design-typography" target="_blank">GitHub</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">7</td>
-          <td data-title="Name">Material Design Buttons</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/Gubja" target="_blank">Codepen</a>
-          </td>
-          <td data-title="Status">In progress</td>
-        </tr>
-        <tr>
-          <td data-title="ID">8</td>
-          <td data-title="Name">Material Design Form Elements</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/yaozl" target="_blank">Codepen</a>
-          </td>
-          <td data-title="Status">In progress</td>
-        </tr>
-        <tr>
-          <td data-title="ID">9</td>
-          <td data-title="Name">Material Design Email Template</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/qEVqzx" target="_blank">Codepen</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">10</td>
-          <td data-title="Name">Material Design Animation Timing (old one)</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/Jbrho" target="_blank">Codepen</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="pricing-container">
+    <div class="pricing-switcher">
+      <p class="fieldset">
+        <input type="radio" name="duration-1" value="monthly" id="monthly-1" checked>
+        <label for="monthly-1" @click="setTable(1)">Monthly</label>
+        <input type="radio" name="duration-1" value="yearly" id="yearly-1">
+        <label for="yearly-1" @click="setTable(2)">Yearly</label>
+        <span class="switch"></span>
+      </p>
+    </div>
+    <ul class="pricing-list bounce-invert">
+      <li>
+        <ul class="pricing-wrapper">
+          <li data-type="monthly" v-bind:class="[ table == 1 ? 'is-visible' : 'is-hidden']">
+            <header class="pricing-header">
+              <h2>Basic</h2>
+              <div class="price">
+                <span class="currency">$</span>
+                <span class="value">30</span>
+                <span class="duration">mo</span>
+              </div>
+            </header>
+            <div class="pricing-body">
+              <ul class="pricing-features">
+                <li><em>5</em> Email Accounts</li>
+                <li><em>1</em> Template Style</li>
+                <li><em>25</em> Products Loaded</li>
+                <li><em>1</em> Image per Product</li>
+                <li><em>Unlimited</em> Bandwidth</li>
+                <li><em>24/7</em> Support</li>
+              </ul>
+            </div>
+<!--             <footer class="pricing-footer">
+              <a class="select" href="#">Sign Up</a>
+            </footer> -->
+          </li>
+          <li data-type="yearly" v-bind:class="[table == 2 ? 'is-visible' : 'is-hidden']">
+            <header class="pricing-header">
+              <h2>Basic</h2>
+              <div class="price">
+                <span class="currency">$</span>
+                <span class="value">320</span>
+                <span class="duration">yr</span>
+              </div>
+            </header>
+            <div class="pricing-body">
+              <ul class="pricing-features">
+                <li><em>5</em> Email Accounts</li>
+                <li><em>1</em> Template Style</li>
+                <li><em>25</em> Products Loaded</li>
+                <li><em>1</em> Image per Product</li>
+                <li><em>Unlimited</em> Bandwidth</li>
+                <li><em>24/7</em> Support</li>
+              </ul>
+            </div>
+<!--             <footer class="pricing-footer">
+              <a class="select" href="#">Sign Up</a>
+            </footer> -->
+          </li>
+        </ul>
+      </li>
+      <li class="exclusive">
+        <ul class="pricing-wrapper">
+          <li data-type="monthly" v-bind:class="[ table == 1 ? 'is-visible' : 'is-hidden']">
+            <header class="pricing-header">
+              <h2>Exclusive</h2>
+              <div class="price">
+                <span class="currency">$</span>
+                <span class="value">60</span>
+                <span class="duration">mo</span>
+              </div>
+            </header>
+            <div class="pricing-body">
+              <ul class="pricing-features">
+                <li><em>15</em> Email Accounts</li>
+                <li><em>3</em> Template Styles</li>
+                <li><em>40</em> Products Loaded</li>
+                <li><em>7</em> Images per Product</li>
+                <li><em>Unlimited</em> Bandwidth</li>
+                <li><em>24/7</em> Support</li>
+              </ul>
+            </div>
+<!--             <footer class="pricing-footer">
+              <a class="select" href="#">Sign Up</a>
+            </footer> -->
+          </li>
+          <li data-type="yearly" v-bind:class="[table == 2 ? 'is-visible' : 'is-hidden']">
+            <header class="pricing-header">
+              <h2>Exclusive</h2>
+              <div class="price">
+                <span class="currency">$</span>
+                <span class="value">630</span>
+                <span class="duration">yr</span>
+              </div>
+            </header>
+            <div class="pricing-body">
+              <ul class="pricing-features">
+                <li><em>15</em> Email Accounts</li>
+                <li><em>3</em> Template Styles</li>
+                <li><em>40</em> Products Loaded</li>
+                <li><em>7</em> Images per Product</li>
+                <li><em>Unlimited</em> Bandwidth</li>
+                <li><em>24/7</em> Support</li>
+              </ul>
+            </div>
+<!--             <footer class="pricing-footer">
+              <a class="select" href="#">Sign Up</a>
+            </footer> -->
+          </li>
+        </ul>
+      </li>
+      <li>
+        <ul class="pricing-wrapper">
+          <li data-type="monthly" v-bind:class="[ table == 1 ? 'is-visible' : 'is-hidden']">
+            <header class="pricing-header">
+              <h2>Pro</h2>
+              <div class="price">
+                <span class="currency">$</span>
+                <span class="value">90</span>
+                <span class="duration">mo</span>
+              </div>
+            </header>
+            <div class="pricing-body">
+              <ul class="pricing-features">
+                <li><em>20</em> Email Accounts</li>
+                <li><em>5</em> Template Styles</li>
+                <li><em>50</em> Products Loaded</li>
+                <li><em>10</em> Images per Product</li>
+                <li><em>Unlimited</em> Bandwidth</li>
+                <li><em>24/7</em> Support</li>
+              </ul>
+            </div>
+<!--             <footer class="pricing-footer">
+              <a class="select" href="#">Sign Up</a>
+            </footer> -->
+          </li>
+          <li data-type="yearly" v-bind:class="[table == 2 ? 'is-visible' : 'is-hidden']">
+            <header class="pricing-header">
+              <h2>Pro</h2>
+              <div class="price">
+                <span class="currency">$</span>
+                <span class="value">950</span>
+                <span class="duration">yr</span>
+              </div>
+            </header>
+            <div class="pricing-body">
+              <ul class="pricing-features">
+                <li><em>20</em> Email Accounts</li>
+                <li><em>5</em> Template Styles</li>
+                <li><em>50</em> Products Loaded</li>
+                <li><em>10</em> Images per Product</li>
+                <li><em>Unlimited</em> Bandwidth</li>
+                <li><em>24/7</em> Support</li>
+              </ul>
+            </div>
+<!--             <footer class="pricing-footer">
+              <a class="select" href="#">Sign Up</a>
+            </footer> -->
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
-  
-</div>
 </template>
 
 <script>
+  
+  // var $ = function(selector) {
+  //   return selector == this ? selector : document.querySelector(selector); 
+  // }
 
+window.addEventListener('load', function() {
+  checkScrolling(document.querySelector('.pricing-body'));
 
+  window.addEventListener('resize', function(){
+    window.requestAnimationFrame(function(){checkScrolling($('.pricing-body'))});
+  });
+  document.querySelector('.pricing-body').addEventListener('scroll', function(){ 
+    var selected = this;
+    window.requestAnimationFrame(function(){checkScrolling(selected)});
+  });
+
+  function checkScrolling(tables){
+    [].forEach.call(tables, function(){
+      var table = this,
+          totalTableWidth = parseInt(table.querySelector('.pricing-features').style.width),
+          tableViewport = parseInt(table.style.width);
+      if( table.scrollLeft >= totalTableWidth - tableViewport -1 ) {
+        // table.parent('li').addClass('is-ended');
+      } else {
+        // table.parent('li').removeClass('is-ended');
+      }
+    });
+  }
+
+  //switch from monthly to annual pricing tables
+  bouncy_filter(document.querySelector('.pricing-container'));
+
+  function bouncy_filter(container) {
+    [].forEach.call(container, function(){
+      var pricing_table = this;
+      var filter_list_container = pricing_table.children('.pricing-switcher'),
+        filter_radios = filter_list_container.find('input[type="radio"]'),
+        pricing_table_wrapper = pricing_table.find('.pricing-wrapper');
+
+      //store pricing table items
+      var table_elements = {};
+    [].forEach.call(filter_radios, function(){
+        var filter_type = this.value;
+        table_elements[filter_type] = pricing_table_wrapper.find('li[data-type="'+filter_type+'"]');
+      });
+
+      //detect input change event
+      filter_radios.addEventListener('change', function(event){
+        event.preventDefault();
+        //detect which radio input item was checked
+        var selected_filter = document.querySelector(event.target).value;
+
+        //give higher z-index to the pricing table items selected by the radio input
+        show_selected_items(table_elements[selected_filter]);
+
+        //rotate each pricing-wrapper 
+        //at the end of the animation hide the not-selected pricing tables and rotate back the .pricing-wrapper
+        
+        if( !Modernizr.cssanimations ) {
+          hide_not_selected_items(table_elements, selected_filter);
+          pricing_table_wrapper.removeClass('is-switched');
+        } else {
+          pricing_table_wrapper.addClass('is-switched').eq(0).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function() {    
+            hide_not_selected_items(table_elements, selected_filter);
+            pricing_table_wrapper.removeClass('is-switched');
+            //change rotation direction if .pricing-list has the .bounce-invert class
+            if(pricing_table.find('.pricing-list').hasClass('bounce-invert')) pricing_table_wrapper.toggleClass('reverse-animation');
+          });
+        }
+      });
+    });
+  }
+  function show_selected_items(selected_elements) {
+    selected_elements.addClass('is-selected');
+  }
+
+  function hide_not_selected_items(table_containers, filter) {
+    $.each(table_containers, function(key, value){
+        if ( key != filter ) {  
+        $(this).removeClass('is-visible is-selected').addClass('is-hidden');
+
+      } else {
+        $(this).addClass('is-visible').removeClass('is-hidden is-selected');
+      }
+    });
+  }
+});
 export default {
   name: 'PriceTable',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      table: 1
+    }
+  },
+  methods: {
+    setTable(num) {
+      this.table = num;
     }
   }
 }
@@ -117,388 +270,691 @@ export default {
 
 <style lang="stylus">
 
-lesscss-percentage(n)
-  (n * 100)%
-/* -- import Roboto Font ---------------------------- */
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic')
-/* -- You can use this tables in Bootstrap (v3) projects. -- */
-/* -- Box model ------------------------------- */
-*, *:after, *:before
-  -webkit-box-sizing border-box
-  -moz-box-sizing border-box
-  box-sizing border-box
-/* -- Demo style ------------------------------- */
-html, body
-  position relative
-  min-height 100%
-  height 100%
-html
-  position relative
-  overflow-x hidden
-  margin 16px
-  padding 0
-  min-height 100%
-  font-size 62.5%
-body
-  font-family 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif
-  font-style normal
-  font-weight 300
-  font-size 1.4rem
-  line-height 2rem
-  letter-spacing 0.01rem
-  color #212121
-  background-color #f5f5f5
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-rendering optimizeLegibility
-#demo
-  margin 20px auto
-  max-width 960px
-#demo h1
-  font-size 2.4rem
-  line-height 3.2rem
-  letter-spacing 0
-  font-weight 300
-  color #212121
-  text-transform inherit
-  margin-bottom 1rem
-  text-align center
-#demo h2
-  font-size 1.5rem
-  line-height 2.8rem
-  letter-spacing 0.01rem
-  font-weight 400
-  color #212121
-  text-align center
-.shadow-z-1
-  -webkit-box-shadow 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24)
-  -moz-box-shadow 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24)
-  box-shadow 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24)
-/* -- Material Design Table style -------------- */
-table-header-font-weight = 400
-table-header-font-color = rgb(117, 117, 117, 1)
-table-cell-padding = 1.6rem
-table-condensed-cell-padding = (table-cell-padding / 2)
-table-bg = rgb(255, 255, 255, 1)
-table-bg-accent = rgb(245, 245, 245, 1)
-table-bg-hover = rgba(0, 0, 0, 0.12)
-table-bg-active = table-bg-hover
-table-border-color = rgb(224, 224, 224, 1)
-transition(transition)
-  -webkit-transition transition
-  -o-transition transition
-  transition transition
-.table
-  width 100%
-  max-width 100%
-  margin-bottom 2rem
-  background-color table-bg
-  > thead, > tbody, > tfoot
-    > tr
-      transition(all 0.3s ease)
-      > th, > td
-        text-align left
-        padding table-cell-padding
-        vertical-align top
-        border-top 0
-        transition(all 0.3s ease)
-  > thead > tr > th
-    font-weight table-header-font-weight
-    color table-header-font-color
-    vertical-align bottom
-    border-bottom 1px solid rgba(0, 0, 0, 0.12)
-  > caption + thead, > colgroup + thead, > thead:first-child
-    > tr:first-child
-      > th, > td
-        border-top 0
-  > tbody + tbody
-    border-top 1px solid rgba(0, 0, 0, 0.12)
-  .table
-    background-color table-bg
-  .no-border
-    border 0
-.table-condensed
-  > thead, > tbody, > tfoot
-    > tr
-      > th, > td
-        padding table-condensed-cell-padding
-.table-bordered
-  border 0
-  > thead, > tbody, > tfoot
-    > tr
-      > th, > td
-        border 0
-        border-bottom 1px solid table-border-color
-  > thead > tr
-    > th, > td
-      border-bottom-width 2px
-.table-striped
-  > tbody > tr:nth-child(odd)
-    > td, > th
-      background-color table-bg-accent
-.table-hover
-  > tbody > tr:hover
-    > td, > th
-      background-color table-bg-hover
-.table-responsive-vertical
-  @media screen and (max-width: 768px)
-    > .table
-      margin-bottom 0
-      background-color transparent
-      > thead, > tfoot
-        display none
-      > tbody
-        display block
-        > tr
-          display block
-          border 1px solid table-border-color
-          border-radius 2px
-          margin-bottom table-cell-padding
-          > td
-            background-color table-bg
-            display block
-            vertical-align middle
-            text-align right
-          > td[data-title]:before
-            content attr(data-title)
-            float left
-            font-size inherit
-            font-weight table-header-font-weight
-            color table-header-font-color
-    &.shadow-z-1
-      -webkit-box-shadow none
-      -moz-box-shadow none
-      box-shadow none
-      > .table > tbody > tr
-        border none
-        @extend .shadow-z-1
-    > .table-bordered
-      border 0
-      > tbody
-        > tr
-          > td
-            border 0
-            border-bottom 1px solid table-border-color
-          > td:last-child
-            border-bottom 0
-    > .table-striped
-      > tbody > tr > td, > tbody > tr:nth-child(odd)
-        background-color table-bg
-      > tbody > tr > td:nth-child(odd)
-        background-color table-bg-accent
-    > .table-hover
-      > tbody
-        > tr:hover > td, > tr:hover
-          background-color table-bg
-        > tr > td:hover
-          background-color table-bg-hover
-.table-striped.table-mc-red > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-red > tbody > tr:nth-child(odd) > th
-  background-color #fde0dc
-.table-hover.table-mc-red > tbody > tr:hover > td, .table-hover.table-mc-red > tbody > tr:hover > th
-  background-color #f9bdbb
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-red > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-red > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-red > tbody > tr > td:nth-child(odd)
-    background-color #fde0dc
-  .table-responsive-vertical .table-hover.table-mc-red > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-red > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-red > tbody > tr > td:hover
-    background-color #f9bdbb
-.table-striped.table-mc-pink > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-pink > tbody > tr:nth-child(odd) > th
-  background-color #fce4ec
-.table-hover.table-mc-pink > tbody > tr:hover > td, .table-hover.table-mc-pink > tbody > tr:hover > th
-  background-color #f8bbd0
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-pink > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-pink > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-pink > tbody > tr > td:nth-child(odd)
-    background-color #fce4ec
-  .table-responsive-vertical .table-hover.table-mc-pink > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-pink > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-pink > tbody > tr > td:hover
-    background-color #f8bbd0
-.table-striped.table-mc-purple > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-purple > tbody > tr:nth-child(odd) > th
-  background-color #f3e5f5
-.table-hover.table-mc-purple > tbody > tr:hover > td, .table-hover.table-mc-purple > tbody > tr:hover > th
-  background-color #e1bee7
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-purple > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-purple > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-purple > tbody > tr > td:nth-child(odd)
-    background-color #f3e5f5
-  .table-responsive-vertical .table-hover.table-mc-purple > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-purple > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-purple > tbody > tr > td:hover
-    background-color #e1bee7
-.table-striped.table-mc-deep-purple > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-deep-purple > tbody > tr:nth-child(odd) > th
-  background-color #ede7f6
-.table-hover.table-mc-deep-purple > tbody > tr:hover > td, .table-hover.table-mc-deep-purple > tbody > tr:hover > th
-  background-color #d1c4e9
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-deep-purple > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-deep-purple > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-deep-purple > tbody > tr > td:nth-child(odd)
-    background-color #ede7f6
-  .table-responsive-vertical .table-hover.table-mc-deep-purple > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-deep-purple > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-deep-purple > tbody > tr > td:hover
-    background-color #d1c4e9
-.table-striped.table-mc-indigo > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-indigo > tbody > tr:nth-child(odd) > th
-  background-color #e8eaf6
-.table-hover.table-mc-indigo > tbody > tr:hover > td, .table-hover.table-mc-indigo > tbody > tr:hover > th
-  background-color #c5cae9
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-indigo > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-indigo > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-indigo > tbody > tr > td:nth-child(odd)
-    background-color #e8eaf6
-  .table-responsive-vertical .table-hover.table-mc-indigo > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-indigo > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-indigo > tbody > tr > td:hover
-    background-color #c5cae9
-.table-striped.table-mc-blue > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-blue > tbody > tr:nth-child(odd) > th
-  background-color #e7e9fd
-.table-hover.table-mc-blue > tbody > tr:hover > td, .table-hover.table-mc-blue > tbody > tr:hover > th
-  background-color #d0d9ff
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-blue > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-blue > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-blue > tbody > tr > td:nth-child(odd)
-    background-color #e7e9fd
-  .table-responsive-vertical .table-hover.table-mc-blue > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-blue > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-blue > tbody > tr > td:hover
-    background-color #d0d9ff
-.table-striped.table-mc-light-blue > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-light-blue > tbody > tr:nth-child(odd) > th
-  background-color #e1f5fe
-.table-hover.table-mc-light-blue > tbody > tr:hover > td, .table-hover.table-mc-light-blue > tbody > tr:hover > th
-  background-color #b3e5fc
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-light-blue > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-light-blue > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-light-blue > tbody > tr > td:nth-child(odd)
-    background-color #e1f5fe
-  .table-responsive-vertical .table-hover.table-mc-light-blue > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-light-blue > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-light-blue > tbody > tr > td:hover
-    background-color #b3e5fc
-.table-striped.table-mc-cyan > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-cyan > tbody > tr:nth-child(odd) > th
-  background-color #e0f7fa
-.table-hover.table-mc-cyan > tbody > tr:hover > td, .table-hover.table-mc-cyan > tbody > tr:hover > th
-  background-color #b2ebf2
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-cyan > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-cyan > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-cyan > tbody > tr > td:nth-child(odd)
-    background-color #e0f7fa
-  .table-responsive-vertical .table-hover.table-mc-cyan > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-cyan > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-cyan > tbody > tr > td:hover
-    background-color #b2ebf2
-.table-striped.table-mc-teal > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-teal > tbody > tr:nth-child(odd) > th
-  background-color #e0f2f1
-.table-hover.table-mc-teal > tbody > tr:hover > td, .table-hover.table-mc-teal > tbody > tr:hover > th
-  background-color #b2dfdb
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-teal > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-teal > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-teal > tbody > tr > td:nth-child(odd)
-    background-color #e0f2f1
-  .table-responsive-vertical .table-hover.table-mc-teal > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-teal > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-teal > tbody > tr > td:hover
-    background-color #b2dfdb
-.table-striped.table-mc-green > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-green > tbody > tr:nth-child(odd) > th
-  background-color #d0f8ce
-.table-hover.table-mc-green > tbody > tr:hover > td, .table-hover.table-mc-green > tbody > tr:hover > th
-  background-color #a3e9a4
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-green > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-green > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-green > tbody > tr > td:nth-child(odd)
-    background-color #d0f8ce
-  .table-responsive-vertical .table-hover.table-mc-green > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-green > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-green > tbody > tr > td:hover
-    background-color #a3e9a4
-.table-striped.table-mc-light-green > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-light-green > tbody > tr:nth-child(odd) > th
-  background-color #f1f8e9
-.table-hover.table-mc-light-green > tbody > tr:hover > td, .table-hover.table-mc-light-green > tbody > tr:hover > th
-  background-color #dcedc8
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-light-green > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-light-green > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-light-green > tbody > tr > td:nth-child(odd)
-    background-color #f1f8e9
-  .table-responsive-vertical .table-hover.table-mc-light-green > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-light-green > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-light-green > tbody > tr > td:hover
-    background-color #dcedc8
-.table-striped.table-mc-lime > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-lime > tbody > tr:nth-child(odd) > th
-  background-color #f9fbe7
-.table-hover.table-mc-lime > tbody > tr:hover > td, .table-hover.table-mc-lime > tbody > tr:hover > th
-  background-color #f0f4c3
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-lime > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-lime > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-lime > tbody > tr > td:nth-child(odd)
-    background-color #f9fbe7
-  .table-responsive-vertical .table-hover.table-mc-lime > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-lime > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-lime > tbody > tr > td:hover
-    background-color #f0f4c3
-.table-striped.table-mc-yellow > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-yellow > tbody > tr:nth-child(odd) > th
-  background-color #fffde7
-.table-hover.table-mc-yellow > tbody > tr:hover > td, .table-hover.table-mc-yellow > tbody > tr:hover > th
-  background-color #fff9c4
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-yellow > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-yellow > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-yellow > tbody > tr > td:nth-child(odd)
-    background-color #fffde7
-  .table-responsive-vertical .table-hover.table-mc-yellow > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-yellow > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-yellow > tbody > tr > td:hover
-    background-color #fff9c4
-.table-striped.table-mc-amber > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-amber > tbody > tr:nth-child(odd) > th
-  background-color #fff8e1
-.table-hover.table-mc-amber > tbody > tr:hover > td, .table-hover.table-mc-amber > tbody > tr:hover > th
-  background-color #ffecb3
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-amber > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-amber > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-amber > tbody > tr > td:nth-child(odd)
-    background-color #fff8e1
-  .table-responsive-vertical .table-hover.table-mc-amber > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-amber > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-amber > tbody > tr > td:hover
-    background-color #ffecb3
-.table-striped.table-mc-orange > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-orange > tbody > tr:nth-child(odd) > th
-  background-color #fff3e0
-.table-hover.table-mc-orange > tbody > tr:hover > td, .table-hover.table-mc-orange > tbody > tr:hover > th
-  background-color #ffe0b2
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-orange > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-orange > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-orange > tbody > tr > td:nth-child(odd)
-    background-color #fff3e0
-  .table-responsive-vertical .table-hover.table-mc-orange > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-orange > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-orange > tbody > tr > td:hover
-    background-color #ffe0b2
-.table-striped.table-mc-deep-orange > tbody > tr:nth-child(odd) > td, .table-striped.table-mc-deep-orange > tbody > tr:nth-child(odd) > th
-  background-color #fbe9e7
-.table-hover.table-mc-deep-orange > tbody > tr:hover > td, .table-hover.table-mc-deep-orange > tbody > tr:hover > th
-  background-color #ffccbc
-@media screen and (max-width: 767px)
-  .table-responsive-vertical .table-striped.table-mc-deep-orange > tbody > tr > td, .table-responsive-vertical .table-striped.table-mc-deep-orange > tbody > tr:nth-child(odd)
-    background-color table-bg
-  .table-responsive-vertical .table-striped.table-mc-deep-orange > tbody > tr > td:nth-child(odd)
-    background-color #fbe9e7
-  .table-responsive-vertical .table-hover.table-mc-deep-orange > tbody > tr:hover > td, .table-responsive-vertical .table-hover.table-mc-deep-orange > tbody > tr:hover
-    background-color table-bg
-  .table-responsive-vertical .table-hover.table-mc-deep-orange > tbody > tr > td:hover
-    background-color #ffccbc
+.pricing-container {
+  width: 90%;
+  max-width: 1170px;
+  margin: 4em auto;
+}
 
+.pricing-container {
+    margin: 6em auto;
+}
+.pricing-container.full-width {
+    width: 100%;
+    max-width: none;
+}
+
+.pricing-switcher {
+  text-align: center;
+}
+
+.pricing-switcher .fieldset {
+  display: inline-block;
+  position: relative;
+  padding: 2px;
+  border-radius: 50em;
+  border: 2px solid #2d3e50;
+}
+
+.pricing-switcher input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.pricing-switcher label {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  float: left;
+  width: 90px;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+.pricing-switcher .switch {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 40px;
+  width: 90px;
+  background-color: #2d3e50;
+  border-radius: 50em;
+  -webkit-transition: -webkit-transform 0.5s;
+  -moz-transition: -moz-transform 0.5s;
+  transition: transform 0.5s;
+}
+
+.pricing-switcher input[type="radio"]:checked + label + .switch,
+.pricing-switcher input[type="radio"]:checked + label:nth-of-type(n) + .switch {
+  -webkit-transform: translateX(90px);
+  -moz-transform: translateX(90px);
+  -ms-transform: translateX(90px);
+  -o-transform: translateX(90px);
+  transform: translateX(90px);
+}
+
+.no-js .pricing-switcher {
+  display: none;
+}
+
+.pricing-list {
+  margin: 2em 0 0;
+}
+
+.pricing-list > li {
+  position: relative;
+  margin-bottom: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+  .pricing-list {
+    margin: 3em 0 0;
+  }
+  .pricing-list:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .pricing-list > li {
+    width: 33.3333333333%;
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .has-margins .pricing-list > li {
+    width: 32.3333333333%;
+    float: left;
+    margin-right: 1.5%;
+  }
+  .has-margins .pricing-list > li:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.pricing-wrapper {
+  position: relative;
+}
+
+.touch .pricing-wrapper {
+  -webkit-perspective: 2000px;
+  -moz-perspective: 2000px;
+  perspective: 2000px;
+}
+
+.pricing-wrapper.is-switched .is-visible {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-animation: rotate 0.5s;
+  -moz-animation: rotate 0.5s;
+  animation: rotate 0.5s;
+}
+
+.pricing-wrapper.is-switched .is-hidden {
+  -webkit-transform: rotateY(0);
+  -moz-transform: rotateY(0);
+  -ms-transform: rotateY(0);
+  -o-transform: rotateY(0);
+  transform: rotateY(0);
+  -webkit-animation: rotate-inverse 0.5s;
+  -moz-animation: rotate-inverse 0.5s;
+  animation: rotate-inverse 0.5s;
+  opacity: 0;
+}
+
+.pricing-wrapper.is-switched .is-selected {
+  opacity: 1;
+}
+
+.pricing-wrapper.is-switched.reverse-animation .is-visible {
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  -webkit-animation: rotate-back 0.5s;
+  -moz-animation: rotate-back 0.5s;
+  animation: rotate-back 0.5s;
+}
+
+.pricing-wrapper.is-switched.reverse-animation .is-hidden {
+  -webkit-transform: rotateY(0);
+  -moz-transform: rotateY(0);
+  -ms-transform: rotateY(0);
+  -o-transform: rotateY(0);
+  transform: rotateY(0);
+  -webkit-animation: rotate-inverse-back 0.5s;
+  -moz-animation: rotate-inverse-back 0.5s;
+  animation: rotate-inverse-back 0.5s;
+  opacity: 0;
+}
+
+.pricing-wrapper.is-switched.reverse-animation .is-selected {
+  opacity: 1;
+}
+
+.pricing-wrapper > li {
+  background-color: #ffffff;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  outline: 1px solid transparent;
+}
+
+.pricing-wrapper > li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50px;
+  pointer-events: none;
+  background: -webkit-linear-gradient( right , #ffffff, rgba(255, 255, 255, 0));
+  background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0));
+}
+
+.pricing-wrapper > li.is-ended::after {
+  display: none;
+}
+
+.pricing-wrapper .is-visible {
+  position: relative;
+  z-index: 5;
+}
+
+.pricing-wrapper .is-hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.pricing-wrapper .is-selected {
+  z-index: 3 !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .pricing-wrapper > li::before {
+    content: '';
+    position: absolute;
+    z-index: 6;
+    left: -1px;
+    top: 50%;
+    bottom: auto;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 50%;
+    width: 1px;
+    background-color: #b1d6e8;
+  }
+  .pricing-wrapper > li::after {
+    display: none;
+  }
+  .exclusive .pricing-wrapper > li {
+    box-shadow: inset 0 0 0 3px #2d3e50;
+  }
+  .has-margins .pricing-wrapper > li,
+  .has-margins .exclusive .pricing-wrapper > li {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  :nth-of-type(1) > .pricing-wrapper > li::before {
+    display: none;
+  }
+  .has-margins .pricing-wrapper > li {
+    border-radius: 4px 4px 6px 6px;
+  }
+  .has-margins .pricing-wrapper > li::before {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .full-width .pricing-wrapper > li {
+    padding: 2.5em 0;
+  }
+}
+
+.no-js .pricing-wrapper .is-hidden {
+  position: relative;
+  -webkit-transform: rotateY(0);
+  -moz-transform: rotateY(0);
+  -ms-transform: rotateY(0);
+  -o-transform: rotateY(0);
+  transform: rotateY(0);
+  margin-top: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+  .exclusive .pricing-wrapper > li::before {
+    display: none;
+  }
+  .exclusive + li .pricing-wrapper > li::before {
+    display: none;
+  }
+}
+
+.pricing-header h2 {
+  padding: 0.9em 0.9em 0.6em;
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    text-transform: uppercase;
+  text-align: center;
+}
+
+.pricing-header {
+    height: auto;
+    padding: 1.9em 0 1.6em;
+    pointer-events: auto;
+    text-align: center;
+    color: #173d50;
+    background-color: transparent;
+}
+
+.exclusive .pricing-header {
+    color: #1bbc9d;
+    background-color: transparent;
+}
+
+.pricing-header h2 {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+}
+
+.currency,
+.value {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.duration {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #8dc8e4;
+  text-transform: uppercase;
+}
+
+.exclusive .duration {
+  color: #f3b6ab;
+}
+
+.duration::before {
+  content: '/';
+  margin-right: 2px;
+}
+
+.value {
+    font-size: 7rem;
+    font-weight: 300;
+}
+
+.currency, 
+.duration {
+    color: #1bbc9d;
+}
+
+.exclusive .currency,
+.exclusive .duration {
+    color: #2d3e50;
+}
+
+.currency {
+    display: inline-block;
+    margin-top: 10px;
+    vertical-align: top;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.duration {
+    font-size: 1.4rem;
+}
+
+.pricing-body {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.is-switched .pricing-body {
+  overflow: hidden;
+}
+
+.pricing-body {
+    overflow-x: visible;
+}
+
+.pricing-features {
+  width: 600px;
+}
+
+.pricing-features:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.pricing-features li {
+  width: 100px;
+  float: left;
+  padding: 1.6em 1em;
+  font-size: 1.5rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pricing-features em {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.pricing-features {
+    width: auto;
+}
+
+.pricing-features li {
+    float: none;
+    width: auto;
+    padding: 1em;
+}
+
+.exclusive .pricing-features li {
+    margin: 0 3px;
+}
+  
+.pricing-features em {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.has-margins .exclusive .pricing-features li {
+    margin: 0;
+}
+
+.pricing-footer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+}
+
+.pricing-footer {
+    position: relative;
+    height: auto;
+    padding: 1.8em 0;
+    text-align: center;
+}
+
+.pricing-footer::after {
+    display: none;
+}
+
+.has-margins .pricing-footer {
+    padding-bottom: 0;
+}
+
+.select {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  color: transparent;
+}
+
+.select {
+    position: static;
+    display: inline-block;
+    height: auto;
+    padding: 1.3em 2em;
+    color: #1bbc9d;
+    border-radius: 8px;
+    border: 2px solid #1bbc9d;
+    font-size: 1.4rem;
+    text-indent: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  transition: all .6s;
+  width: 70%;
+}
+
+.no-touch .select:hover {
+    background-color: #1bbc9d;
+  color: #ffffff;
+}
+
+.exclusive .select {
+    background-color: #1bbc9d;
+  color: #ffffff;
+}
+  
+.no-touch .exclusive .select:hover {
+    background-color: #24e0ba;
+}
+  
+.secondary-theme .exclusive .select {
+    background-color: #1bbc9d;
+}
+  
+.no-touch .secondary-theme .exclusive .select:hover {
+    background-color: #112e3c;
+}
+  
+.has-margins .select {
+    display: block;
+    padding: 1.7em 0;
+    border-radius: 0 0 4px 4px;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(0);
+  }
+  70% {
+    -webkit-transform: perspective(2000px) rotateY(200deg);
+  }
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(180deg);
+  }
+}
+
+@-moz-keyframes rotate {
+  0% {
+    -moz-transform: perspective(2000px) rotateY(0);
+  }
+  70% {
+    -moz-transform: perspective(2000px) rotateY(200deg);
+  }
+  100% {
+    -moz-transform: perspective(2000px) rotateY(180deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(0);
+    -moz-transform: perspective(2000px) rotateY(0);
+    -ms-transform: perspective(2000px) rotateY(0);
+    -o-transform: perspective(2000px) rotateY(0);
+    transform: perspective(2000px) rotateY(0);
+  }
+  70% {
+    -webkit-transform: perspective(2000px) rotateY(200deg);
+    -moz-transform: perspective(2000px) rotateY(200deg);
+    -ms-transform: perspective(2000px) rotateY(200deg);
+    -o-transform: perspective(2000px) rotateY(200deg);
+    transform: perspective(2000px) rotateY(200deg);
+  }
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(180deg);
+    -moz-transform: perspective(2000px) rotateY(180deg);
+    -ms-transform: perspective(2000px) rotateY(180deg);
+    -o-transform: perspective(2000px) rotateY(180deg);
+    transform: perspective(2000px) rotateY(180deg);
+  }
+}
+
+@-webkit-keyframes rotate-inverse {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(-180deg);
+  }
+  70% {
+    -webkit-transform: perspective(2000px) rotateY(20deg);
+  }
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(0);
+  }
+}
+
+@-moz-keyframes rotate-inverse {
+  0% {
+    -moz-transform: perspective(2000px) rotateY(-180deg);
+  }
+  70% {
+    -moz-transform: perspective(2000px) rotateY(20deg);
+  }
+  100% {
+    -moz-transform: perspective(2000px) rotateY(0);
+  }
+}
+
+@keyframes rotate-inverse {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(-180deg);
+    -moz-transform: perspective(2000px) rotateY(-180deg);
+    -ms-transform: perspective(2000px) rotateY(-180deg);
+    -o-transform: perspective(2000px) rotateY(-180deg);
+    transform: perspective(2000px) rotateY(-180deg);
+  }
+  70% {
+    -webkit-transform: perspective(2000px) rotateY(20deg);
+    -moz-transform: perspective(2000px) rotateY(20deg);
+    -ms-transform: perspective(2000px) rotateY(20deg);
+    -o-transform: perspective(2000px) rotateY(20deg);
+    transform: perspective(2000px) rotateY(20deg);
+  }
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(0);
+    -moz-transform: perspective(2000px) rotateY(0);
+    -ms-transform: perspective(2000px) rotateY(0);
+    -o-transform: perspective(2000px) rotateY(0);
+    transform: perspective(2000px) rotateY(0);
+  }
+}
+
+@-webkit-keyframes rotate-back {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(0);
+  }
+  70% {
+    -webkit-transform: perspective(2000px) rotateY(-200deg);
+  }
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(-180deg);
+  }
+}
+
+@-moz-keyframes rotate-back {
+  0% {
+    -moz-transform: perspective(2000px) rotateY(0);
+  }
+  70% {
+    -moz-transform: perspective(2000px) rotateY(-200deg);
+  }
+  100% {
+    -moz-transform: perspective(2000px) rotateY(-180deg);
+  }
+}
+
+@keyframes rotate-back {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(0);
+    -moz-transform: perspective(2000px) rotateY(0);
+    -ms-transform: perspective(2000px) rotateY(0);
+    -o-transform: perspective(2000px) rotateY(0);
+    transform: perspective(2000px) rotateY(0);
+  }
+  70% {
+    -webkit-transform: perspective(2000px) rotateY(-200deg);
+    -moz-transform: perspective(2000px) rotateY(-200deg);
+    -ms-transform: perspective(2000px) rotateY(-200deg);
+    -o-transform: perspective(2000px) rotateY(-200deg);
+    transform: perspective(2000px) rotateY(-200deg);
+  }
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(-180deg);
+    -moz-transform: perspective(2000px) rotateY(-180deg);
+    -ms-transform: perspective(2000px) rotateY(-180deg);
+    -o-transform: perspective(2000px) rotateY(-180deg);
+    transform: perspective(2000px) rotateY(-180deg);
+  }
+}
+
+@-webkit-keyframes rotate-inverse-back {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(180deg);
+  }
+  70% {
+    -webkit-transform: perspective(2000px) rotateY(-20deg);
+  }
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(0);
+  }
+}
+
+@-moz-keyframes rotate-inverse-back {
+  0% {
+    -moz-transform: perspective(2000px) rotateY(180deg);
+  }
+  70% {
+    -moz-transform: perspective(2000px) rotateY(-20deg);
+  }
+  100% {
+    -moz-transform: perspective(2000px) rotateY(0);
+  }
+}
+
+@keyframes rotate-inverse-back {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(180deg);
+    -moz-transform: perspective(2000px) rotateY(180deg);
+    -ms-transform: perspective(2000px) rotateY(180deg);
+    -o-transform: perspective(2000px) rotateY(180deg);
+    transform: perspective(2000px) rotateY(180deg);
+  }
+  70% {
+    -webkit-transform: perspective(2000px) rotateY(-20deg);
+    -moz-transform: perspective(2000px) rotateY(-20deg);
+    -ms-transform: perspective(2000px) rotateY(-20deg);
+    -o-transform: perspective(2000px) rotateY(-20deg);
+    transform: perspective(2000px) rotateY(-20deg);
+  }
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(0);
+    -moz-transform: perspective(2000px) rotateY(0);
+    -ms-transform: perspective(2000px) rotateY(0);
+    -o-transform: perspective(2000px) rotateY(0);
+    transform: perspective(2000px) rotateY(0);
+  }
+}
 </style>

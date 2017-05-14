@@ -105,10 +105,65 @@ archDarkGrey   = #333
 fontSerif      = 'PT Serif', Georgia, 'Times New Roman', serif
 fontSansSerif  = 'Open Sans', Arial, sans-serif
 
-html
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+  margin 0
+  padding 0
+  border 0
+  font-size 100%
+  vertical-align baseline
+  
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, main
+  display block
 body
-  margin 0px
-  padding 0px
+  line-height 1
+ol, ul
+  list-style none
+blockquote, q
+  quotes none
+blockquote:before, blockquote:after,
+q:before, q:after
+  content ''
+  content none
+table
+  border-collapse collapse
+  border-spacing 0
+*,
+*::after,
+*::before
+  -webkit-box-sizing border-box
+  -moz-box-sizing border-box
+  box-sizing border-box
+
+html
+  font-size 62.5%
+
+html *
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+body
+  font-size 1.6rem
+  font-family "Open Sans", sans-serif
+  color #2d3d4f
+  background-color #1bbc9d
+
+a
+  text-decoration none
   
 // div
 //   box-shadow 0 0 5px 2px indianred
@@ -129,6 +184,8 @@ body
       width 50%
       min-height 400px
       vertical-align top
+    &:nth-child(1)
+      margin-top 50px
 
 .wrapper
   width 100%
@@ -148,10 +205,15 @@ body
       padding-left 50px
       h3
         font-size 32px
+        margin 32px 0px
+      p
+        margin 16px 0px
       ul
         li
+          margin 15px 20px
           i
             margin-right 10px
+            
     .item-list-pic
       text-align center
       margin-top 40px
@@ -191,16 +253,5 @@ body
 h1, h2, h3
   font-weight bold
   font-family fontSerif
-
-ul
-  list-style-type none
-  padding 0
-
-li
-  margin 15px 20px
-
-a
-  // color #42b983
-  text-decoration none
   
 </style>
