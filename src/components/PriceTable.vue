@@ -3,9 +3,9 @@
     <div class="pricing-switcher">
       <p class="fieldset">
         <input type="radio" name="duration-1" value="monthly" id="monthly-1" checked>
-        <label for="monthly-1" @click="setTable(1)">Monthly</label>
+        <label for="monthly-1" @click="setTable(1)">08:00-21:00</label>
         <input type="radio" name="duration-1" value="yearly" id="yearly-1">
-        <label for="yearly-1" @click="setTable(2)">Yearly</label>
+        <label for="yearly-1" @click="setTable(2)">21:00-08:00</label>
         <span class="switch"></span>
       </p>
     </div>
@@ -14,34 +14,28 @@
         <ul class="pricing-wrapper">
           <li data-type="monthly" v-bind:class="[ table == 1 ? 'is-visible' : 'is-hidden']">
             <header class="pricing-header">
-              <h2>Basic</h2>
+              <h2>Riga</h2>
               <div class="price">
                 <span class="currency">$</span>
-                <span class="value">30</span>
-                <span class="duration">mo</span>
+                <span class="value">15</span>
+                <span class="duration">hr</span>
               </div>
             </header>
             <div class="pricing-body">
               <ul class="pricing-features">
-                <li><em>5</em> Email Accounts</li>
-                <li><em>1</em> Template Style</li>
-                <li><em>25</em> Products Loaded</li>
-                <li><em>1</em> Image per Product</li>
-                <li><em>Unlimited</em> Bandwidth</li>
+                <li><em>1 hr</em> 18€</li>
+                <li><em>2 hr</em> 25€</li>
                 <li><em>24/7</em> Support</li>
               </ul>
             </div>
-<!--             <footer class="pricing-footer">
-              <a class="select" href="#">Sign Up</a>
-            </footer> -->
           </li>
           <li data-type="yearly" v-bind:class="[table == 2 ? 'is-visible' : 'is-hidden']">
             <header class="pricing-header">
-              <h2>Basic</h2>
+              <h2>Riga</h2>
               <div class="price">
                 <span class="currency">$</span>
-                <span class="value">320</span>
-                <span class="duration">yr</span>
+                <span class="value">30</span>
+                <span class="duration">hr</span>
               </div>
             </header>
             <div class="pricing-body">
@@ -54,9 +48,6 @@
                 <li><em>24/7</em> Support</li>
               </ul>
             </div>
-<!--             <footer class="pricing-footer">
-              <a class="select" href="#">Sign Up</a>
-            </footer> -->
           </li>
         </ul>
       </li>
@@ -64,11 +55,11 @@
         <ul class="pricing-wrapper">
           <li data-type="monthly" v-bind:class="[ table == 1 ? 'is-visible' : 'is-hidden']">
             <header class="pricing-header">
-              <h2>Exclusive</h2>
+              <h2>Riga + rajon4iki</h2>
               <div class="price">
                 <span class="currency">$</span>
-                <span class="value">60</span>
-                <span class="duration">mo</span>
+                <span class="value">30</span>
+                <span class="duration">hr</span>
               </div>
             </header>
             <div class="pricing-body">
@@ -81,17 +72,14 @@
                 <li><em>24/7</em> Support</li>
               </ul>
             </div>
-<!--             <footer class="pricing-footer">
-              <a class="select" href="#">Sign Up</a>
-            </footer> -->
           </li>
           <li data-type="yearly" v-bind:class="[table == 2 ? 'is-visible' : 'is-hidden']">
             <header class="pricing-header">
-              <h2>Exclusive</h2>
+              <h2>Riga + rajon4iki</h2>
               <div class="price">
                 <span class="currency">$</span>
-                <span class="value">630</span>
-                <span class="duration">yr</span>
+                <span class="value">60</span>
+                <span class="duration">hr</span>
               </div>
             </header>
             <div class="pricing-body">
@@ -104,9 +92,6 @@
                 <li><em>24/7</em> Support</li>
               </ul>
             </div>
-<!--             <footer class="pricing-footer">
-              <a class="select" href="#">Sign Up</a>
-            </footer> -->
           </li>
         </ul>
       </li>
@@ -114,11 +99,11 @@
         <ul class="pricing-wrapper">
           <li data-type="monthly" v-bind:class="[ table == 1 ? 'is-visible' : 'is-hidden']">
             <header class="pricing-header">
-              <h2>Pro</h2>
+              <h2>Hotj gde</h2>
               <div class="price">
                 <span class="currency">$</span>
                 <span class="value">90</span>
-                <span class="duration">mo</span>
+                <span class="duration">hr</span>
               </div>
             </header>
             <div class="pricing-body">
@@ -131,17 +116,14 @@
                 <li><em>24/7</em> Support</li>
               </ul>
             </div>
-<!--             <footer class="pricing-footer">
-              <a class="select" href="#">Sign Up</a>
-            </footer> -->
           </li>
           <li data-type="yearly" v-bind:class="[table == 2 ? 'is-visible' : 'is-hidden']">
             <header class="pricing-header">
-              <h2>Pro</h2>
+              <h2>Hotj gde</h2>
               <div class="price">
                 <span class="currency">$</span>
-                <span class="value">950</span>
-                <span class="duration">yr</span>
+                <span class="value">180</span>
+                <span class="duration">hr</span>
               </div>
             </header>
             <div class="pricing-body">
@@ -154,9 +136,6 @@
                 <li><em>24/7</em> Support</li>
               </ul>
             </div>
-<!--             <footer class="pricing-footer">
-              <a class="select" href="#">Sign Up</a>
-            </footer> -->
           </li>
         </ul>
       </li>
