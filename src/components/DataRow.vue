@@ -1,0 +1,340 @@
+<template>
+
+	<div>
+
+		<div class="blog-card" v-if="dataPos == 'left'">
+			<div class="photo photo1"></div>
+			<ul class="details">
+				<li class="author"><a href="#">Archin bus</a></li>
+				<li class="date">Aug. 24, 2015</li>
+				<li class="tags">
+					<ul>
+						<li><a href="#">Rabotaet</a></li>
+						<li><a href="#">ppc klasno</a></li>
+						<li><a href="#">vozit shini</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="description">
+				<h1>Gruzovie perevozki</h1>
+				<h2>Perevezi mechtu</h2>
+				<p class="summary">
+					<ul>
+                		<li><i class="fa fa-bed" aria-hidden="true"></i>&nbsp; Furniture</li>
+                		<li><i class="fa fa-industry" aria-hidden="true"></i>&nbsp; Industry</li>
+                		<li><i class="fa fa-tv" aria-hidden="true"></i>&nbsp; TVs n stuff</li>
+                		<li><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Office stuff</li>
+                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; just stuff</li>
+                	</ul>
+                </p>
+				<a href="#">Read More</a>
+			</div>
+		</div>
+		<div class="blog-card alt" v-if="dataPos == 'right'">
+			<div class="photo photo2"></div>
+			<ul class="details">
+				<li class="author"><a href="#">Ino</a></li>
+				<li class="date">July. 15, 2015</li>
+				<li class="tags">
+					<ul>
+						<li><a href="#">O</a></li>
+						<li><a href="#">Vtoroj</a></li>
+						<li><a href="#">fotke</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="description">
+				<h1>Dop. uslugi</h1>
+				<h2>Dopolnitelnie perevozki mecht?</h2>
+				<p class="summary">
+					<ul>
+                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Lorem ipsum dolor sit amet.</li>
+                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Lorem ipsum dolor sit amet, consectetur adipisicing elit. </li>
+                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Facere ex, culpa accusantium, voluptas quis similique aliquam </li>
+                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Lorem ipsum dolor sit amet.</li>
+                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Sequi tempora, nulla nesciunt a laudantium adipisci labore veritatis.</li>
+                	</ul></p>
+				<a href="#">Read More</a>
+			</div>
+		</div>
+
+	</div>
+
+</template>
+
+<script>
+  
+export default {
+  name: 'PriceTable',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+      table: 1
+    }
+  },
+  props: ['dataPos']
+}
+
+</script>
+
+<style lang="sass">
+
+/*PEN STYLES*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700);
+$green: #1fa67a;
+$grey: #f5f5f5;
+
+@mixin transition($dur, $prop: all) {
+	transition: $prop $dur ease;
+	-webkit-transition: $prop $dur ease;
+}
+
+@mixin bgImg($url) {
+	background: url($url) center no-repeat;
+	background-size: cover;
+}
+
+.blog-card {
+	@include transition(0.3s, height);
+
+	background: #fff;
+	border-radius: 1px;
+	box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+	margin: 0 auto 1.6%;
+	overflow: hidden;
+	position: relative;
+	font-size: 14px;
+	line-height: 1.45em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	&:hover {
+		.details {
+			left: 0;
+		}
+
+		&.alt {
+			.details {
+				right: 0;
+			}
+		}
+	}
+
+	&.alt {
+		.details {
+			right: -100%;
+			left: inherit;
+		}
+	}
+
+	.photo {
+		height: 200px;
+		position: relative;
+
+		&.photo1 {
+			@include bgImg("http://i62.tinypic.com/34oq4o0.jpg");
+		}
+
+		&.photo2 {
+			@include bgImg("http://i60.tinypic.com/xeiv79.jpg");
+		}
+	}
+
+	.details {
+		@include transition(0.3s);
+
+		background: rgba(0, 0, 0, 0.6);
+		box-sizing: border-box;
+		color: #fff;
+		font-family: "Open Sans";
+		list-style: none;
+		margin: 0;
+		padding: 10px 15px;
+		height: 100%;
+
+		/*POSITION*/
+		position: absolute;
+		top: 0;
+		left: -100%;
+
+		> li {
+			padding: 3px 0;
+		}
+
+		li:before, .tags ul:before {
+			font-family: FontAwesome;
+			margin-right: 10px;
+			vertical-align: middle;
+		}
+
+		.author:before {
+			content: "\f007";
+		}
+
+		.date:before {
+			content: "\f133";
+		}
+
+		.tags {
+			ul {
+				&:before {
+					content: "\f02b";
+				}
+
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			li {
+				display: inline-block;
+				margin-right: 3px;
+			}
+		}
+
+		a {
+			color: inherit;
+			border-bottom: 1px dotted;
+
+			&:hover {
+				color: $green;
+			}
+		}
+	}
+
+	.description {
+		padding: 50px;
+		box-sizing: border-box;
+		position: relative;
+		height: 100%;
+
+		h1 {
+			font-family: "Roboto";
+			line-height: 1em;
+			margin: 0 0 10px 0;
+		}
+
+		h2 {
+			color: $grey / 1.5;
+			font-family: "Open Sans";
+			line-height: 1.2em;
+			text-transform: uppercase;
+			font-size: 1em;
+			font-weight: 400;
+			margin: 1.2% 0;
+		}
+
+		p {
+			position: relative;
+			margin: 0;
+			padding-top: 20px;
+			white-space: normal;
+
+			&:after {
+				content: "";
+				background: $green;
+				height: 6px;
+				width: 40px;
+
+				/*POSITION*/
+				position: absolute;
+				top: 6px;
+				left: 0;
+			}
+		}
+
+		a {
+			color: $green;
+			margin-bottom: 10px;
+			float: right;
+
+			&:after {
+				@include transition(0.3s);
+
+				content: "\f061";
+				font-family: FontAwesome;
+				margin-left: -10px;
+				opacity: 0;
+				vertical-align: middle;
+			}
+
+			&:hover:after {
+				margin-left: 5px;
+				opacity: 1;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.blog-card {
+		height: 310px;
+		max-width: 1280px;
+
+		&:hover {
+			.photo {
+				// transform: rotate(5deg) scale(1.3);
+				transform: scale(1.1);
+			}
+
+			&.alt .photo {
+				// transform: rotate(-5deg) scale(1.3);
+				transform: scale(1.1);
+			}
+		}
+
+		&.alt {
+			.details {
+				padding-left: 30px;
+			}
+
+			.description {
+				float: right;
+
+				&:before {
+					transform: skewX(5deg);
+					right: -15px;
+					left: inherit;
+				}
+			}
+
+			.photo {
+				float: right;
+			}
+		}
+
+		.photo {
+			@include transition(0.5s);
+
+			float: left;
+			height: 100%;
+			width: 40%;
+		}
+
+		.details {
+			width: 40%;
+		}
+
+		.description {
+			float: left;
+			width: 60%;
+			z-index: 0;
+
+			&:before {
+				transform: skewX(-5deg);
+				content: "";
+				background: #fff;
+				width: 100%;
+				z-index: -1;
+
+				/*POSITION*/
+				position: absolute;
+				left: -15px;
+				top: 0;
+				bottom: 0;
+			}
+		}
+	}
+}
+
+</style>

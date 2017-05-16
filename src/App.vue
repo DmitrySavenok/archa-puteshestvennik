@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     
+
     
     <div class="wrapper">
       <div class="header">
@@ -16,7 +17,10 @@
         <div class="content">
           
           <div class="row columns-2">
-            <div class="column">
+
+            <DataRow :data-pos="'left'"></DataRow>
+
+<!--             <div class="column">
               <div class="item-list-pic">
                 <img src="https://unsplash.it/500/300/?random">
               </div>
@@ -34,11 +38,16 @@
                   <li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; just stuff</li>
                 </ul>
               </div>
-            </div>
+            </div> -->
+
+
           </div>
 
           <div class="row columns-2">
-            <div class="column">
+
+
+            <DataRow :data-pos="'right'"></DataRow>
+<!--             <div class="column">
               <div class="item-list-pic">
                 <img src="https://unsplash.it/500/300/?random">
               </div>
@@ -56,12 +65,21 @@
                   <li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; What</li>
                 </ul>
               </div>
-            </div>
+            </div> -->
+
+
           </div>
 
           <div class="row">
             
             <PriceTable></PriceTable>
+
+          </div>
+
+
+          <div class="row columns-2">
+
+            <SignUp></SignUp>
 
           </div>
 
@@ -76,6 +94,8 @@
 <script>
 
 import PriceTable from './components/PriceTable.vue';
+import DataRow    from './components/DataRow.vue';
+import SignUp     from './components/SignUp.vue';
 
 export default {
   name: 'app',
@@ -85,7 +105,9 @@ export default {
     }
   },
   components: {
-    PriceTable
+    PriceTable,
+    DataRow,
+    SignUp
   }
 }
 </script>
@@ -229,8 +251,8 @@ a
       height 50px
       bottom -50px
       right 0px
-      box-shadow 0 0 3px 0px archDarkGrey
-      border-radius 0px 0px 2px 2px
+      // box-shadow 0 0 3px 0px archDarkGrey
+      // border-radius 0px 0px 2px 2px
       text-align center
       z-index 99
       a
