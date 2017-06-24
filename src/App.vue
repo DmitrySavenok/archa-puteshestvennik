@@ -5,11 +5,22 @@
     
     <div class="wrapper">
       <div class="header">
+        <div class="banner">
+          <p class="main-line">AG Kravas</p>
+          <p class="secondaty-tagline">
+            <i class="fa fa-phone" aria-hidden="true"></i> +371 200 74 862 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="fa fa-clock-o" aria-hidden="true"></i> 24/7
+            <i class="fa fa-globe" aria-hidden="true"></i> Riga, Latvia
+          </p>
+        </div>
         <div class="content">
           <div class="menu">
-            <a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
-            <a href="#"><i class="fa fa-question fa-fw" aria-hidden="true"></i>&nbsp; About us</a>
-            <a href="#"><i class="fa fa-address-book-o fa-fw" aria-hidden="true"></i>&nbsp; Contacts</a>
+            <a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Начало</a>
+            <a href="#"><i class="fa fa-money" aria-hidden="true"></i> Цены</a>
+            <a href="#"><i class="fa fa-address-book-o fa-fw" aria-hidden="true"></i>Оформить заказ</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"><i class="fa fa-address-book-o fa-fw" aria-hidden="true"></i>Галерея</a>
           </div>
         </div>
       </div>
@@ -115,14 +126,33 @@ export default {
 <style lang="stylus">
 
 @import 'assets/css/font-awesome.min.css'
+@import url('https://fonts.googleapis.com/css?family=Russo+One')
+
+// #D7CEC7
+// #565656
+// #76323F
+// #C09F80
 
 
-archBlue       = #489fdf
-archGreen      = #1fa67a
-archDarkGreen  = #1b926c
-archLightGreen = #34a782
-archGrey       = #f5f5f5
-archDarkGrey   = #333
+// archBlue       = #489fdf
+// archGreen      = #1fa67a
+// archDarkGreen  = #1b926c
+// archLightGreen = #34a782
+// archGrey       = #f5f5f5
+// archDarkGrey   = #333
+
+// archBlue          = #bcd5d1
+// archGreen         = #565656
+// archGrey          = #bcd5d1
+// archDarkGrey      = #76323F
+
+
+archYellow        = #f2b632
+archDarkBlue      = #2c3e50
+archGrey          = #5a5c51
+archDarkGrey      = #1d2120
+
+
 
 fontSerif      = 'PT Serif', Georgia, 'Times New Roman', serif
 fontSansSerif  = 'Open Sans', Arial, sans-serif
@@ -182,7 +212,7 @@ body
   font-size 1.6rem
   font-family "Open Sans", sans-serif
   color #2d3d4f
-  background-color #1bbc9d
+  background-color archDarkGrey
 
 a
   text-decoration none
@@ -241,27 +271,48 @@ a
       margin-top 40px
     
   .header
-    background-color archBlue
-    height 200px
+    height 100px
+    background-color archYellow
+    
+    .banner
+      .main-line
+        position absolute
+        font-family 'Russo One'
+        font-size 44px
+        left 12.3%
+        top 10px
+        
+      .secondaty-tagline
+        position absolute
+        left 12.3%
+        top 65px
+        font-size 21px
     
     .menu
       position absolute
       display flex
-      width 500px
+      width 100%
       height 50px
       bottom -50px
-      right 0px
-      // box-shadow 0 0 3px 0px archDarkGrey
-      // border-radius 0px 0px 2px 2px
+      left 0px
       text-align center
       z-index 99
+      border-bottom 1px solid archDarkGrey
+      border-top 1px solid archDarkGrey
+      
       a
-        flex 1 0 33%
+        flex 1 0 15%
         background archGrey
-        color archDarkGrey
+        color #FFF
         border-radius inherit
         line-height 50px
+        border 1px solid archDarkGrey
         cursor pointer
+        &:nth-child(4),
+        &:nth-child(5)
+          background archDarkGrey
+          cursor default
+          pointer-events none
         &:hover
           background archDarkGrey
           color #FFF

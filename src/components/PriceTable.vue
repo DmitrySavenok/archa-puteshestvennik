@@ -153,11 +153,15 @@ window.addEventListener('load', function() {
   checkScrolling(document.querySelector('.pricing-body'));
 
   window.addEventListener('resize', function(){
-    window.requestAnimationFrame(function(){checkScrolling($('.pricing-body'))});
+    window.requestAnimationFrame(function(){
+      checkScrolling(document.querySelectorAll('.pricing-body'));
+    });
   });
   document.querySelector('.pricing-body').addEventListener('scroll', function(){ 
     var selected = this;
-    window.requestAnimationFrame(function(){checkScrolling(selected)});
+    window.requestAnimationFrame(function(){
+      checkScrolling(selected)
+    });
   });
 
   function checkScrolling(tables){

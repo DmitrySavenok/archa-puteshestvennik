@@ -18,6 +18,28 @@
 
 		<h2>Your Address {{address}}</h2>
 
+		<div class="container">
+			<div class="control-group">
+				<h1>Checkboxes</h1>
+				<label class="control control--checkbox">First checkbox
+					<input type="checkbox" checked="checked"/>
+					<div class="control__indicator"></div>
+				</label>
+				<label class="control control--checkbox">Second checkbox
+					<input type="checkbox"/>
+					<div class="control__indicator"></div>
+				</label>
+				<label class="control control--checkbox">Disabled
+					<input type="checkbox" disabled="disabled"/>
+					<div class="control__indicator"></div>
+				</label>
+				<label class="control control--checkbox">Disabled & checked
+					<input type="checkbox" disabled="disabled" checked="checked"/>
+					<div class="control__indicator"></div>
+				</label>
+			</div>
+		</div>
+
 		<form>
 			<div class="group">
 				<vue-google-autocomplete
@@ -25,7 +47,7 @@
 						classname="form-control"
 						placeholder="Start typing"
 						v-on:placechanged="getAddressData"
-						v-on:blur="checkData($event)"
+						v-on:blur="checkData"
 				>
 				</vue-google-autocomplete>
 				<label>Address 1</label>
@@ -38,7 +60,7 @@
 						classname="form-control"
 						placeholder="Start typing"
 						v-on:placechanged="getAddressData"
-						v-on:blur="checkData($event)"
+						v-on:blur="checkData"
 				>
 				</vue-google-autocomplete>
 				<label>Address 2</label>
@@ -103,10 +125,12 @@ export default {
 	methods: {
 		checkData: function(e) {
 			console.log(e);
-			if ( e.target.value ) {
-				e.target.classList.add('used');
-			} else {
-				e.target.classList.remove('used');
+			if ( e.target ) {
+				if ( e.target.value ) {
+					e.target.classList.add('used');
+				} else {
+					e.target.classList.remove('used');
+				}
 			}
 		},
 		/**
@@ -322,32 +346,8 @@ input:focus ~ .highlight {
   }
 }
 
-footer { text-align: center; }
+</style>
 
-footer p {
-	color: #888;
-	font-size: 13px;
-	letter-spacing: .4px;
-}
-
-footer a {
-	color: #4a89dc;
-	text-decoration: none;
-	transition: all .2s ease;
-}
-
-footer a:hover {
-	color: #666;
-	text-decoration: underline;
-}
-
-footer img {
-	width: 80px;
-	transition: all .2s ease;
-}
-
-footer img:hover { opacity: .83; }
-
-footer img:focus , footer a:focus { outline: none; }
+<style lang="stylus">
 
 </style>

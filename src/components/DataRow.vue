@@ -2,9 +2,9 @@
 
 	<div>
 
-		<div class="blog-card" v-if="dataPos == 'left'">
+		<div class="blog-card blog-card-1" v-if="dataPos == 'left'">
 			<div class="photo photo1"></div>
-			<ul class="details">
+<!-- 			<ul class="details">
 				<li class="author"><a href="#">Archin bus</a></li>
 				<li class="date">Aug. 24, 2015</li>
 				<li class="tags">
@@ -14,25 +14,24 @@
 						<li><a href="#">vozit shini</a></li>
 					</ul>
 				</li>
-			</ul>
+			</ul> -->
 			<div class="description">
-				<h1>Gruzovie perevozki</h1>
-				<h2>Perevezi mechtu</h2>
+				<h1>Грузовые перевозки - Renault Master</h1>
+				<h2>Длина - 3.2м / Ширина - 1.7м / Высота - 1.89м</h2>
 				<p class="summary">
 					<ul>
-                		<li><i class="fa fa-bed" aria-hidden="true"></i>&nbsp; Furniture</li>
-                		<li><i class="fa fa-industry" aria-hidden="true"></i>&nbsp; Industry</li>
-                		<li><i class="fa fa-tv" aria-hidden="true"></i>&nbsp; TVs n stuff</li>
-                		<li><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Office stuff</li>
-                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; just stuff</li>
+                		<li><i class="fa fa-bed" aria-hidden="true"></i>&nbsp; Мебель</li>
+                		<li><i class="fa fa-industry" aria-hidden="true"></i>&nbsp; Стройматериалы</li>
+                		<li><i class="fa fa-tv" aria-hidden="true"></i>&nbsp; Бытовая техника</li>
+                		<li><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Офисная техника</li>
+                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; И многое другое</li>
                 	</ul>
                 </p>
-				<a href="#">Read More</a>
 			</div>
 		</div>
 		<div class="blog-card alt" v-if="dataPos == 'right'">
 			<div class="photo photo2"></div>
-			<ul class="details">
+<!-- 			<ul class="details">
 				<li class="author"><a href="#">Ino</a></li>
 				<li class="date">July. 15, 2015</li>
 				<li class="tags">
@@ -42,19 +41,17 @@
 						<li><a href="#">fotke</a></li>
 					</ul>
 				</li>
-			</ul>
+			</ul> -->
 			<div class="description">
-				<h1>Dop. uslugi</h1>
-				<h2>Dopolnitelnie perevozki mecht?</h2>
+				<h1>Дополнительные услуги</h1>
+				<h2>Индивидуальный подход</h2>
 				<p class="summary">
 					<ul>
-                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Lorem ipsum dolor sit amet.</li>
-                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Lorem ipsum dolor sit amet, consectetur adipisicing elit. </li>
-                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Facere ex, culpa accusantium, voluptas quis similique aliquam </li>
-                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Lorem ipsum dolor sit amet.</li>
-                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Sequi tempora, nulla nesciunt a laudantium adipisci labore veritatis.</li>
+                		<li><i class="fa fa-users" aria-hidden="true"></i>&nbsp; Услуги опытных грузчиков</li>
+                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Услуги монтажа / демонтажа комнатной мебели</li>
+                		<li><i class="fa fa-recycle" aria-hidden="true"></i>&nbsp; Вывоз старой мебели</li>
+                		<li><i class="fa fa-th" aria-hidden="true"></i>&nbsp; Упаковка хрупких / деликатных грузов</li>
                 	</ul></p>
-				<a href="#">Read More</a>
 			</div>
 		</div>
 
@@ -81,8 +78,10 @@ export default {
 
 /*PEN STYLES*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700);
+
 $green: #1fa67a;
 $grey: #f5f5f5;
+$yellow: #f2b632;
 
 @mixin transition($dur, $prop: all) {
 	transition: $prop $dur ease;
@@ -107,6 +106,11 @@ $grey: #f5f5f5;
 	line-height: 1.45em;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	box-shadow: 0px 0px 3px 0px #000;
+
+	&.blog-card-1 {
+		top: 9px;
+	}
 
 	&:hover {
 		.details {
@@ -132,11 +136,11 @@ $grey: #f5f5f5;
 		position: relative;
 
 		&.photo1 {
-			@include bgImg("http://i62.tinypic.com/34oq4o0.jpg");
+			@include bgImg("../assets/img/1.jpg");
 		}
 
 		&.photo2 {
-			@include bgImg("http://i60.tinypic.com/xeiv79.jpg");
+			@include bgImg("../assets/img/2.jpg");
 		}
 	}
 
@@ -212,6 +216,7 @@ $grey: #f5f5f5;
 			font-family: "Roboto";
 			line-height: 1em;
 			margin: 0 0 10px 0;
+			font-size: 21px;
 		}
 
 		h2 {
@@ -232,7 +237,7 @@ $grey: #f5f5f5;
 
 			&:after {
 				content: "";
-				background: $green;
+				background: $yellow;
 				height: 6px;
 				width: 40px;
 
@@ -241,6 +246,10 @@ $grey: #f5f5f5;
 				top: 6px;
 				left: 0;
 			}
+		}
+		li {
+			font-size: 16px;
+			margin: 5px 0px;
 		}
 
 		a {
