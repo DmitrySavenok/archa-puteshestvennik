@@ -4,17 +4,6 @@
 
 		<div class="blog-card blog-card-1" v-if="dataPos == 'left'">
 			<div class="photo photo1"></div>
-<!-- 			<ul class="details">
-				<li class="author"><a href="#">Archin bus</a></li>
-				<li class="date">Aug. 24, 2015</li>
-				<li class="tags">
-					<ul>
-						<li><a href="#">Rabotaet</a></li>
-						<li><a href="#">ppc klasno</a></li>
-						<li><a href="#">vozit shini</a></li>
-					</ul>
-				</li>
-			</ul> -->
 			<div class="description">
 				<h1>Грузовые перевозки - Renault Master</h1>
 				<h2>Длина - 3.2м / Ширина - 1.7м / Высота - 1.89м</h2>
@@ -24,6 +13,7 @@
                 		<li><i class="fa fa-industry" aria-hidden="true"></i>&nbsp; Стройматериалы</li>
                 		<li><i class="fa fa-tv" aria-hidden="true"></i>&nbsp; Бытовая техника</li>
                 		<li><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Офисная техника</li>
+                		<li><i class="fa fa-motorcycle" aria-hidden="true"></i>&nbsp; Мототехника</li>
                 		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; И многое другое</li>
                 	</ul>
                 </p>
@@ -31,17 +21,6 @@
 		</div>
 		<div class="blog-card alt" v-if="dataPos == 'right'">
 			<div class="photo photo2"></div>
-<!-- 			<ul class="details">
-				<li class="author"><a href="#">Ino</a></li>
-				<li class="date">July. 15, 2015</li>
-				<li class="tags">
-					<ul>
-						<li><a href="#">O</a></li>
-						<li><a href="#">Vtoroj</a></li>
-						<li><a href="#">fotke</a></li>
-					</ul>
-				</li>
-			</ul> -->
 			<div class="description">
 				<h1>Дополнительные услуги</h1>
 				<h2>Индивидуальный подход</h2>

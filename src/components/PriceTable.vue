@@ -1,240 +1,85 @@
 <template>
   <div class="pricing-container">
-    <div class="pricing-switcher">
-      <p class="fieldset">
-        <input type="radio" name="duration-1" value="monthly" id="monthly-1" checked>
-        <label for="monthly-1" @click="setTable(1)">08:00-21:00</label>
-        <input type="radio" name="duration-1" value="yearly" id="yearly-1">
-        <label for="yearly-1" @click="setTable(2)">21:00-08:00</label>
-        <span class="switch"></span>
-      </p>
-    </div>
+    <h2>Цены на перевозки по Риге</h2>
     <ul class="pricing-list bounce-invert">
-      <li>
-        <ul class="pricing-wrapper">
-          <li data-type="monthly" v-bind:class="[ table == 1 ? 'is-visible' : 'is-hidden']">
-            <header class="pricing-header">
-              <h2>Riga</h2>
-              <div class="price">
-                <span class="currency">$</span>
-                <span class="value">15</span>
-                <span class="duration">hr</span>
-              </div>
-            </header>
-            <div class="pricing-body">
-              <ul class="pricing-features">
-                <li><em>1 hr</em> 18€</li>
-                <li><em>2 hr</em> 25€</li>
-                <li><em>24/7</em> Support</li>
-              </ul>
-            </div>
-          </li>
-          <li data-type="yearly" v-bind:class="[table == 2 ? 'is-visible' : 'is-hidden']">
-            <header class="pricing-header">
-              <h2>Riga</h2>
-              <div class="price">
-                <span class="currency">$</span>
-                <span class="value">30</span>
-                <span class="duration">hr</span>
-              </div>
-            </header>
-            <div class="pricing-body">
-              <ul class="pricing-features">
-                <li><em>5</em> Email Accounts</li>
-                <li><em>1</em> Template Style</li>
-                <li><em>25</em> Products Loaded</li>
-                <li><em>1</em> Image per Product</li>
-                <li><em>Unlimited</em> Bandwidth</li>
-                <li><em>24/7</em> Support</li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+
+      <li data-type="column">
+        <header class="pricing-header">
+          <div class="price">
+            <span>Услуги:</span>
+          </div>
+        </header>
+        <div class="pricing-body">
+          <ul class="pricing-features">
+            <li>Транспорт <br><em> + водитель</em></li>
+            <li>Транспорт <b>*</b><br><em> + 2 грузчика</em></li>
+            <li>Квартирный / Офисный / Дачный переезд <b>**</b><br><em> + 2 грузчика + транспорт </em></li>
+            <li></li>
+          </ul>
+        </div>
       </li>
-      <li class="exclusive">
-        <ul class="pricing-wrapper">
-          <li data-type="monthly" v-bind:class="[ table == 1 ? 'is-visible' : 'is-hidden']">
-            <header class="pricing-header">
-              <h2>Riga + rajon4iki</h2>
-              <div class="price">
-                <span class="currency">$</span>
-                <span class="value">30</span>
-                <span class="duration">hr</span>
-              </div>
-            </header>
-            <div class="pricing-body">
-              <ul class="pricing-features">
-                <li><em>15</em> Email Accounts</li>
-                <li><em>3</em> Template Styles</li>
-                <li><em>40</em> Products Loaded</li>
-                <li><em>7</em> Images per Product</li>
-                <li><em>Unlimited</em> Bandwidth</li>
-                <li><em>24/7</em> Support</li>
-              </ul>
-            </div>
-          </li>
-          <li data-type="yearly" v-bind:class="[table == 2 ? 'is-visible' : 'is-hidden']">
-            <header class="pricing-header">
-              <h2>Riga + rajon4iki</h2>
-              <div class="price">
-                <span class="currency">$</span>
-                <span class="value">60</span>
-                <span class="duration">hr</span>
-              </div>
-            </header>
-            <div class="pricing-body">
-              <ul class="pricing-features">
-                <li><em>15</em> Email Accounts</li>
-                <li><em>3</em> Template Styles</li>
-                <li><em>40</em> Products Loaded</li>
-                <li><em>7</em> Images per Product</li>
-                <li><em>Unlimited</em> Bandwidth</li>
-                <li><em>24/7</em> Support</li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+
+      <li data-type="column">
+        <header class="pricing-header">
+          <div class="price">
+            <span>Цены (22:00 - 9:00):</span>
+          </div>
+        </header>
+        <div class="pricing-body">
+          <ul class="pricing-features">
+            <li>18€ <em>/ ч.</em><br>7€ &nbsp;&nbsp;<em>/ доп. ч.</em></li>
+            <li><em>от</em> 30€ <em>/ ед.</em><br><br></li>
+            <li><em>от</em> 25€ <em>/ ч.</em></li>
+          </ul>
+        </div>
       </li>
-      <li>
-        <ul class="pricing-wrapper">
-          <li data-type="monthly" v-bind:class="[ table == 1 ? 'is-visible' : 'is-hidden']">
-            <header class="pricing-header">
-              <h2>Hotj gde</h2>
-              <div class="price">
-                <span class="currency">$</span>
-                <span class="value">90</span>
-                <span class="duration">hr</span>
-              </div>
-            </header>
-            <div class="pricing-body">
-              <ul class="pricing-features">
-                <li><em>20</em> Email Accounts</li>
-                <li><em>5</em> Template Styles</li>
-                <li><em>50</em> Products Loaded</li>
-                <li><em>10</em> Images per Product</li>
-                <li><em>Unlimited</em> Bandwidth</li>
-                <li><em>24/7</em> Support</li>
-              </ul>
-            </div>
-          </li>
-          <li data-type="yearly" v-bind:class="[table == 2 ? 'is-visible' : 'is-hidden']">
-            <header class="pricing-header">
-              <h2>Hotj gde</h2>
-              <div class="price">
-                <span class="currency">$</span>
-                <span class="value">180</span>
-                <span class="duration">hr</span>
-              </div>
-            </header>
-            <div class="pricing-body">
-              <ul class="pricing-features">
-                <li><em>20</em> Email Accounts</li>
-                <li><em>5</em> Template Styles</li>
-                <li><em>50</em> Products Loaded</li>
-                <li><em>10</em> Images per Product</li>
-                <li><em>Unlimited</em> Bandwidth</li>
-                <li><em>24/7</em> Support</li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+
+      <li data-type="column">
+        <header class="pricing-header">
+          <div class="price">
+            <span>Цены (09:00 - 22:00):</span>
+          </div>
+        </header>
+        <div class="pricing-body">
+          <ul class="pricing-features">
+            <li>30€ <em>/ ч.</em><br>10€ &nbsp;<em>/ доп. ч.</em></li>
+            <li><em>от</em> 50€ <em>/ ед.</em><br><br></li>
+            <li><em>от</em> 50€ <em>/ ч.</em></li>
+          </ul>
+        </div>
       </li>
+
+      <div class="footnote">
+        <b>*</b> - <em> одна единица груза</em><br>
+        <b>**</b> - <em> погрузка, разборка, упаковка</em>
+      </div>
+
     </ul>
+    <div class="result-wrapper result">
+      <h2>Калькулятор цен на перевозки из Риги</h2>
+      <div class="address-input-wrapper">
+        <div class="line-1">
+          <label for="address-input-1">Из: </label>
+          <input id="address-input-1" class="address-input" type="text" placeholder="Адрес">
+        </div>
+        <div class="line-2">
+          <label for="address-input-2">До: </label>
+          <input id="address-input-2" class="address-input" type="text" placeholder="Адрес">
+        </div>
+          
+      </div>
+      <div class="result-text">
+        <p class="distance">Расстояние: <span></span></p>
+        <p class="price">Цена: <span></span></p>
+      </div>
+    </div>
+
+
   </div>
 </template>
 
 <script>
-  
-  // var $ = function(selector) {
-  //   return selector == this ? selector : document.querySelector(selector); 
-  // }
 
-window.addEventListener('load', function() {
-  checkScrolling(document.querySelector('.pricing-body'));
-
-  window.addEventListener('resize', function(){
-    window.requestAnimationFrame(function(){
-      checkScrolling(document.querySelectorAll('.pricing-body'));
-    });
-  });
-  document.querySelector('.pricing-body').addEventListener('scroll', function(){ 
-    var selected = this;
-    window.requestAnimationFrame(function(){
-      checkScrolling(selected)
-    });
-  });
-
-  function checkScrolling(tables){
-    [].forEach.call(tables, function(){
-      var table = this,
-          totalTableWidth = parseInt(table.querySelector('.pricing-features').style.width),
-          tableViewport = parseInt(table.style.width);
-      if( table.scrollLeft >= totalTableWidth - tableViewport -1 ) {
-        // table.parent('li').addClass('is-ended');
-      } else {
-        // table.parent('li').removeClass('is-ended');
-      }
-    });
-  }
-
-  //switch from monthly to annual pricing tables
-  bouncy_filter(document.querySelector('.pricing-container'));
-
-  function bouncy_filter(container) {
-    [].forEach.call(container, function(){
-      var pricing_table = this;
-      var filter_list_container = pricing_table.children('.pricing-switcher'),
-        filter_radios = filter_list_container.find('input[type="radio"]'),
-        pricing_table_wrapper = pricing_table.find('.pricing-wrapper');
-
-      //store pricing table items
-      var table_elements = {};
-    [].forEach.call(filter_radios, function(){
-        var filter_type = this.value;
-        table_elements[filter_type] = pricing_table_wrapper.find('li[data-type="'+filter_type+'"]');
-      });
-
-      //detect input change event
-      filter_radios.addEventListener('change', function(event){
-        event.preventDefault();
-        //detect which radio input item was checked
-        var selected_filter = document.querySelector(event.target).value;
-
-        //give higher z-index to the pricing table items selected by the radio input
-        show_selected_items(table_elements[selected_filter]);
-
-        //rotate each pricing-wrapper 
-        //at the end of the animation hide the not-selected pricing tables and rotate back the .pricing-wrapper
-        
-        if( !Modernizr.cssanimations ) {
-          hide_not_selected_items(table_elements, selected_filter);
-          pricing_table_wrapper.removeClass('is-switched');
-        } else {
-          pricing_table_wrapper.addClass('is-switched').eq(0).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function() {    
-            hide_not_selected_items(table_elements, selected_filter);
-            pricing_table_wrapper.removeClass('is-switched');
-            //change rotation direction if .pricing-list has the .bounce-invert class
-            if(pricing_table.find('.pricing-list').hasClass('bounce-invert')) pricing_table_wrapper.toggleClass('reverse-animation');
-          });
-        }
-      });
-    });
-  }
-  function show_selected_items(selected_elements) {
-    selected_elements.addClass('is-selected');
-  }
-
-  function hide_not_selected_items(table_containers, filter) {
-    $.each(table_containers, function(key, value){
-        if ( key != filter ) {  
-        $(this).removeClass('is-visible is-selected').addClass('is-hidden');
-
-      } else {
-        $(this).addClass('is-visible').removeClass('is-hidden is-selected');
-      }
-    });
-  }
-});
 export default {
   name: 'PriceTable',
   data () {
@@ -253,691 +98,115 @@ export default {
 
 <style lang="stylus">
 
-.pricing-container {
-  width: 90%;
-  max-width: 1170px;
-  margin: 4em auto;
-}
+.pricing-container
+  display inline-block
+  height 320px
+  width 49%
+  margin-bottom 200px
+  box-shadow 0px 0px 3px 0px #000
+  background #FFF
+  white-space nowrap
+  h2
+    font-size 28px
+    text-align center
+    margin 15px 0px
+  .result
+    width 100%
+    height 150px
+    background #FFF
+    box-shadow 0px 0px 3px 0px #000
+    
+    h2
+      padding-top 5px
+    
+    .address-input-wrapper
+      display inline-block
+      width 60%
+      height 60%
+      padding 0px 25px
+      
+      .address-input
+        height 35px
+        padding 0px 25px
+        margin 5px 0px
+      
+      label
+        display inline-block
+        width 45px
+      
+    .result-text
+      display inline-block
+      height 100%
+      vertical-align top
+      padding 18px 0px
+      font-size 29px
+      
+      p
+        font-family "Roboto"
+        line-height 1em
+        margin 0 0 10px 0
+        font-size 21px
+      
+
+      
+  .pricing-list
+    height 262px
+    margin-bottom 30px
+    font-size 0px
+    
+    header
+      background #5a5c51
+      color #fff
+      padding 5px 8px
+      font-size 18px
+    
+    &>li
+      display inline-block
+      width 30%
+      height 80%
+      vertical-align top
+      text-shadow 1px 1px 1px rgba(0, 0, 0, 0.1)
+      border-right 1px solid #C1C3D1
+      background #EBEBEB
+      
+      &:nth-child(1)
+        width 40%
+        
+      &:nth-child(3)
+        border-right none
+      
+    .pricing-features
+      li
+        font-size 18px
+        padding 10px 15px
+        white-space normal
+        &:nth-child(2)
+          background #FFF
+        em
+          font-size 14px
+    
+    .footnote
+      font-size 16px
+      margin-top 10px
+      padding-left 8px 
+  // .pricing-list
+  //   height 250px
+  //   marg
+  // .pricing-list
+  //   width 60%
+  //   left 0px
+  //   right 0px
+  //   margin auto
+  //   background transparent url('../assets/img/riga-skyline.jpg');
+    
+  //   &:before
+  //     top 0
+  //     left 0
+  //     right 0
+  //     bottom 0
+  //     content ''
+  //     position absolute
+  //     background rgba(90, 93, 165, .8)
+  //     background linear-gradient(to bottom, rgba(90, 93, 165, 1), rgba(0, 0, 0, .7))
 
-.pricing-container {
-    margin: 6em auto;
-}
-.pricing-container.full-width {
-    width: 100%;
-    max-width: none;
-}
-
-.pricing-switcher {
-  text-align: center;
-}
-
-.pricing-switcher .fieldset {
-  display: inline-block;
-  position: relative;
-  padding: 2px;
-  border-radius: 50em;
-  border: 2px solid #2d3e50;
-}
-
-.pricing-switcher input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-}
-
-.pricing-switcher label {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  float: left;
-  width: 90px;
-  height: 40px;
-  line-height: 40px;
-  cursor: pointer;
-  font-size: 1.4rem;
-  color: #ffffff;
-}
-
-.pricing-switcher .switch {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  height: 40px;
-  width: 90px;
-  background-color: #2d3e50;
-  border-radius: 50em;
-  -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
-  transition: transform 0.5s;
-}
-
-.pricing-switcher input[type="radio"]:checked + label + .switch,
-.pricing-switcher input[type="radio"]:checked + label:nth-of-type(n) + .switch {
-  -webkit-transform: translateX(90px);
-  -moz-transform: translateX(90px);
-  -ms-transform: translateX(90px);
-  -o-transform: translateX(90px);
-  transform: translateX(90px);
-}
-
-.no-js .pricing-switcher {
-  display: none;
-}
-
-.pricing-list {
-  margin: 2em 0 0;
-}
-
-.pricing-list > li {
-  position: relative;
-  margin-bottom: 1em;
-}
-
-@media only screen and (min-width: 768px) {
-  .pricing-list {
-    margin: 3em 0 0;
-  }
-  .pricing-list:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .pricing-list > li {
-    width: 33.3333333333%;
-    float: left;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  .has-margins .pricing-list > li {
-    width: 32.3333333333%;
-    float: left;
-    margin-right: 1.5%;
-  }
-  .has-margins .pricing-list > li:last-of-type {
-    margin-right: 0;
-  }
-}
-
-.pricing-wrapper {
-  position: relative;
-}
-
-.touch .pricing-wrapper {
-  -webkit-perspective: 2000px;
-  -moz-perspective: 2000px;
-  perspective: 2000px;
-}
-
-.pricing-wrapper.is-switched .is-visible {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  -webkit-animation: rotate 0.5s;
-  -moz-animation: rotate 0.5s;
-  animation: rotate 0.5s;
-}
-
-.pricing-wrapper.is-switched .is-hidden {
-  -webkit-transform: rotateY(0);
-  -moz-transform: rotateY(0);
-  -ms-transform: rotateY(0);
-  -o-transform: rotateY(0);
-  transform: rotateY(0);
-  -webkit-animation: rotate-inverse 0.5s;
-  -moz-animation: rotate-inverse 0.5s;
-  animation: rotate-inverse 0.5s;
-  opacity: 0;
-}
-
-.pricing-wrapper.is-switched .is-selected {
-  opacity: 1;
-}
-
-.pricing-wrapper.is-switched.reverse-animation .is-visible {
-  -webkit-transform: rotateY(-180deg);
-  -moz-transform: rotateY(-180deg);
-  -ms-transform: rotateY(-180deg);
-  -o-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
-  -webkit-animation: rotate-back 0.5s;
-  -moz-animation: rotate-back 0.5s;
-  animation: rotate-back 0.5s;
-}
-
-.pricing-wrapper.is-switched.reverse-animation .is-hidden {
-  -webkit-transform: rotateY(0);
-  -moz-transform: rotateY(0);
-  -ms-transform: rotateY(0);
-  -o-transform: rotateY(0);
-  transform: rotateY(0);
-  -webkit-animation: rotate-inverse-back 0.5s;
-  -moz-animation: rotate-inverse-back 0.5s;
-  animation: rotate-inverse-back 0.5s;
-  opacity: 0;
-}
-
-.pricing-wrapper.is-switched.reverse-animation .is-selected {
-  opacity: 1;
-}
-
-.pricing-wrapper > li {
-  background-color: #ffffff;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  outline: 1px solid transparent;
-}
-
-.pricing-wrapper > li::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 50px;
-  pointer-events: none;
-  background: -webkit-linear-gradient( right , #ffffff, rgba(255, 255, 255, 0));
-  background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0));
-}
-
-.pricing-wrapper > li.is-ended::after {
-  display: none;
-}
-
-.pricing-wrapper .is-visible {
-  position: relative;
-  z-index: 5;
-}
-
-.pricing-wrapper .is-hidden {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-}
-
-.pricing-wrapper .is-selected {
-  z-index: 3 !important;
-}
-
-@media only screen and (min-width: 768px) {
-  .pricing-wrapper > li::before {
-    content: '';
-    position: absolute;
-    z-index: 6;
-    left: -1px;
-    top: 50%;
-    bottom: auto;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    height: 50%;
-    width: 1px;
-    background-color: #b1d6e8;
-  }
-  .pricing-wrapper > li::after {
-    display: none;
-  }
-  .exclusive .pricing-wrapper > li {
-    box-shadow: inset 0 0 0 3px #2d3e50;
-  }
-  .has-margins .pricing-wrapper > li,
-  .has-margins .exclusive .pricing-wrapper > li {
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  }
-  :nth-of-type(1) > .pricing-wrapper > li::before {
-    display: none;
-  }
-  .has-margins .pricing-wrapper > li {
-    border-radius: 4px 4px 6px 6px;
-  }
-  .has-margins .pricing-wrapper > li::before {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 1500px) {
-  .full-width .pricing-wrapper > li {
-    padding: 2.5em 0;
-  }
-}
-
-.no-js .pricing-wrapper .is-hidden {
-  position: relative;
-  -webkit-transform: rotateY(0);
-  -moz-transform: rotateY(0);
-  -ms-transform: rotateY(0);
-  -o-transform: rotateY(0);
-  transform: rotateY(0);
-  margin-top: 1em;
-}
-
-@media only screen and (min-width: 768px) {
-  .exclusive .pricing-wrapper > li::before {
-    display: none;
-  }
-  .exclusive + li .pricing-wrapper > li::before {
-    display: none;
-  }
-}
-
-.pricing-header h2 {
-  padding: 0.9em 0.9em 0.6em;
-    font-weight: 400;
-    margin-bottom: 30px;
-    margin-top: 10px;
-    text-transform: uppercase;
-  text-align: center;
-}
-
-.pricing-header {
-    height: auto;
-    padding: 1.9em 0 1.6em;
-    pointer-events: auto;
-    text-align: center;
-    color: #173d50;
-    background-color: transparent;
-}
-
-.exclusive .pricing-header {
-    color: #1bbc9d;
-    background-color: transparent;
-}
-
-.pricing-header h2 {
-    font-size: 2.8rem;
-    letter-spacing: 2px;
-}
-
-.currency,
-.value {
-  font-size: 3rem;
-  font-weight: 300;
-}
-
-.duration {
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: #8dc8e4;
-  text-transform: uppercase;
-}
-
-.exclusive .duration {
-  color: #f3b6ab;
-}
-
-.duration::before {
-  content: '/';
-  margin-right: 2px;
-}
-
-.value {
-    font-size: 7rem;
-    font-weight: 300;
-}
-
-.currency, 
-.duration {
-    color: #1bbc9d;
-}
-
-.exclusive .currency,
-.exclusive .duration {
-    color: #2d3e50;
-}
-
-.currency {
-    display: inline-block;
-    margin-top: 10px;
-    vertical-align: top;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.duration {
-    font-size: 1.4rem;
-}
-
-.pricing-body {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.is-switched .pricing-body {
-  overflow: hidden;
-}
-
-.pricing-body {
-    overflow-x: visible;
-}
-
-.pricing-features {
-  width: 600px;
-}
-
-.pricing-features:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.pricing-features li {
-  width: 100px;
-  float: left;
-  padding: 1.6em 1em;
-  font-size: 1.5rem;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.pricing-features em {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
-}
-
-.pricing-features {
-    width: auto;
-}
-
-.pricing-features li {
-    float: none;
-    width: auto;
-    padding: 1em;
-}
-
-.exclusive .pricing-features li {
-    margin: 0 3px;
-}
-  
-.pricing-features em {
-    display: inline-block;
-    margin-bottom: 0;
-}
-
-.has-margins .exclusive .pricing-features li {
-    margin: 0;
-}
-
-.pricing-footer {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  height: 80px;
-  width: 100%;
-}
-
-.pricing-footer {
-    position: relative;
-    height: auto;
-    padding: 1.8em 0;
-    text-align: center;
-}
-
-.pricing-footer::after {
-    display: none;
-}
-
-.has-margins .pricing-footer {
-    padding-bottom: 0;
-}
-
-.select {
-  position: relative;
-  z-index: 1;
-  display: block;
-  height: 100%;
-  overflow: hidden;
-  text-indent: 100%;
-  white-space: nowrap;
-  color: transparent;
-}
-
-.select {
-    position: static;
-    display: inline-block;
-    height: auto;
-    padding: 1.3em 2em;
-    color: #1bbc9d;
-    border-radius: 8px;
-    border: 2px solid #1bbc9d;
-    font-size: 1.4rem;
-    text-indent: 0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  transition: all .6s;
-  width: 70%;
-}
-
-.no-touch .select:hover {
-    background-color: #1bbc9d;
-  color: #ffffff;
-}
-
-.exclusive .select {
-    background-color: #1bbc9d;
-  color: #ffffff;
-}
-  
-.no-touch .exclusive .select:hover {
-    background-color: #24e0ba;
-}
-  
-.secondary-theme .exclusive .select {
-    background-color: #1bbc9d;
-}
-  
-.no-touch .secondary-theme .exclusive .select:hover {
-    background-color: #112e3c;
-}
-  
-.has-margins .select {
-    display: block;
-    padding: 1.7em 0;
-    border-radius: 0 0 4px 4px;
-}
-
-@-webkit-keyframes rotate {
-  0% {
-    -webkit-transform: perspective(2000px) rotateY(0);
-  }
-  70% {
-    -webkit-transform: perspective(2000px) rotateY(200deg);
-  }
-  100% {
-    -webkit-transform: perspective(2000px) rotateY(180deg);
-  }
-}
-
-@-moz-keyframes rotate {
-  0% {
-    -moz-transform: perspective(2000px) rotateY(0);
-  }
-  70% {
-    -moz-transform: perspective(2000px) rotateY(200deg);
-  }
-  100% {
-    -moz-transform: perspective(2000px) rotateY(180deg);
-  }
-}
-
-@keyframes rotate {
-  0% {
-    -webkit-transform: perspective(2000px) rotateY(0);
-    -moz-transform: perspective(2000px) rotateY(0);
-    -ms-transform: perspective(2000px) rotateY(0);
-    -o-transform: perspective(2000px) rotateY(0);
-    transform: perspective(2000px) rotateY(0);
-  }
-  70% {
-    -webkit-transform: perspective(2000px) rotateY(200deg);
-    -moz-transform: perspective(2000px) rotateY(200deg);
-    -ms-transform: perspective(2000px) rotateY(200deg);
-    -o-transform: perspective(2000px) rotateY(200deg);
-    transform: perspective(2000px) rotateY(200deg);
-  }
-  100% {
-    -webkit-transform: perspective(2000px) rotateY(180deg);
-    -moz-transform: perspective(2000px) rotateY(180deg);
-    -ms-transform: perspective(2000px) rotateY(180deg);
-    -o-transform: perspective(2000px) rotateY(180deg);
-    transform: perspective(2000px) rotateY(180deg);
-  }
-}
-
-@-webkit-keyframes rotate-inverse {
-  0% {
-    -webkit-transform: perspective(2000px) rotateY(-180deg);
-  }
-  70% {
-    -webkit-transform: perspective(2000px) rotateY(20deg);
-  }
-  100% {
-    -webkit-transform: perspective(2000px) rotateY(0);
-  }
-}
-
-@-moz-keyframes rotate-inverse {
-  0% {
-    -moz-transform: perspective(2000px) rotateY(-180deg);
-  }
-  70% {
-    -moz-transform: perspective(2000px) rotateY(20deg);
-  }
-  100% {
-    -moz-transform: perspective(2000px) rotateY(0);
-  }
-}
-
-@keyframes rotate-inverse {
-  0% {
-    -webkit-transform: perspective(2000px) rotateY(-180deg);
-    -moz-transform: perspective(2000px) rotateY(-180deg);
-    -ms-transform: perspective(2000px) rotateY(-180deg);
-    -o-transform: perspective(2000px) rotateY(-180deg);
-    transform: perspective(2000px) rotateY(-180deg);
-  }
-  70% {
-    -webkit-transform: perspective(2000px) rotateY(20deg);
-    -moz-transform: perspective(2000px) rotateY(20deg);
-    -ms-transform: perspective(2000px) rotateY(20deg);
-    -o-transform: perspective(2000px) rotateY(20deg);
-    transform: perspective(2000px) rotateY(20deg);
-  }
-  100% {
-    -webkit-transform: perspective(2000px) rotateY(0);
-    -moz-transform: perspective(2000px) rotateY(0);
-    -ms-transform: perspective(2000px) rotateY(0);
-    -o-transform: perspective(2000px) rotateY(0);
-    transform: perspective(2000px) rotateY(0);
-  }
-}
-
-@-webkit-keyframes rotate-back {
-  0% {
-    -webkit-transform: perspective(2000px) rotateY(0);
-  }
-  70% {
-    -webkit-transform: perspective(2000px) rotateY(-200deg);
-  }
-  100% {
-    -webkit-transform: perspective(2000px) rotateY(-180deg);
-  }
-}
-
-@-moz-keyframes rotate-back {
-  0% {
-    -moz-transform: perspective(2000px) rotateY(0);
-  }
-  70% {
-    -moz-transform: perspective(2000px) rotateY(-200deg);
-  }
-  100% {
-    -moz-transform: perspective(2000px) rotateY(-180deg);
-  }
-}
-
-@keyframes rotate-back {
-  0% {
-    -webkit-transform: perspective(2000px) rotateY(0);
-    -moz-transform: perspective(2000px) rotateY(0);
-    -ms-transform: perspective(2000px) rotateY(0);
-    -o-transform: perspective(2000px) rotateY(0);
-    transform: perspective(2000px) rotateY(0);
-  }
-  70% {
-    -webkit-transform: perspective(2000px) rotateY(-200deg);
-    -moz-transform: perspective(2000px) rotateY(-200deg);
-    -ms-transform: perspective(2000px) rotateY(-200deg);
-    -o-transform: perspective(2000px) rotateY(-200deg);
-    transform: perspective(2000px) rotateY(-200deg);
-  }
-  100% {
-    -webkit-transform: perspective(2000px) rotateY(-180deg);
-    -moz-transform: perspective(2000px) rotateY(-180deg);
-    -ms-transform: perspective(2000px) rotateY(-180deg);
-    -o-transform: perspective(2000px) rotateY(-180deg);
-    transform: perspective(2000px) rotateY(-180deg);
-  }
-}
-
-@-webkit-keyframes rotate-inverse-back {
-  0% {
-    -webkit-transform: perspective(2000px) rotateY(180deg);
-  }
-  70% {
-    -webkit-transform: perspective(2000px) rotateY(-20deg);
-  }
-  100% {
-    -webkit-transform: perspective(2000px) rotateY(0);
-  }
-}
-
-@-moz-keyframes rotate-inverse-back {
-  0% {
-    -moz-transform: perspective(2000px) rotateY(180deg);
-  }
-  70% {
-    -moz-transform: perspective(2000px) rotateY(-20deg);
-  }
-  100% {
-    -moz-transform: perspective(2000px) rotateY(0);
-  }
-}
-
-@keyframes rotate-inverse-back {
-  0% {
-    -webkit-transform: perspective(2000px) rotateY(180deg);
-    -moz-transform: perspective(2000px) rotateY(180deg);
-    -ms-transform: perspective(2000px) rotateY(180deg);
-    -o-transform: perspective(2000px) rotateY(180deg);
-    transform: perspective(2000px) rotateY(180deg);
-  }
-  70% {
-    -webkit-transform: perspective(2000px) rotateY(-20deg);
-    -moz-transform: perspective(2000px) rotateY(-20deg);
-    -ms-transform: perspective(2000px) rotateY(-20deg);
-    -o-transform: perspective(2000px) rotateY(-20deg);
-    transform: perspective(2000px) rotateY(-20deg);
-  }
-  100% {
-    -webkit-transform: perspective(2000px) rotateY(0);
-    -moz-transform: perspective(2000px) rotateY(0);
-    -ms-transform: perspective(2000px) rotateY(0);
-    -o-transform: perspective(2000px) rotateY(0);
-    transform: perspective(2000px) rotateY(0);
-  }
-}
 </style>
