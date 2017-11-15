@@ -5,16 +5,16 @@
 		<div class="blog-card blog-card-1" v-if="dataPos == 'left'">
 			<div class="photo photo1"></div>
 			<div class="description">
-				<h1>Грузовые перевозки - Renault Master</h1>
-				<h2>Длина - 3.2м / Ширина - 1.7м / Высота - 1.89м</h2>
+				<h1>{{ $t('cards.heading1') }}</h1>
+				<h2>{{ $t('cards.text1') }}</h2>
 				<p class="summary">
 					<ul>
-                		<li><i class="fa fa-bed" aria-hidden="true"></i>&nbsp; Мебель</li>
-                		<li><i class="fa fa-industry" aria-hidden="true"></i>&nbsp; Стройматериалы</li>
-                		<li><i class="fa fa-tv" aria-hidden="true"></i>&nbsp; Бытовая техника</li>
-                		<li><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Офисная техника</li>
-                		<li><i class="fa fa-motorcycle" aria-hidden="true"></i>&nbsp; Мототехника</li>
-                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; И многое другое</li>
+                		<li><i class="fa fa-bed" aria-hidden="true"></i>&nbsp; {{ $t('cards.list1[0]') }} </li>
+                		<li><i class="fa fa-industry" aria-hidden="true"></i>&nbsp; {{ $t('cards.list1[1]') }} </li>
+                		<li><i class="fa fa-tv" aria-hidden="true"></i>&nbsp; {{ $t('cards.list1[2]') }} </li>
+                		<li><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; {{ $t('cards.list1[3]') }} </li>
+                		<li><i class="fa fa-motorcycle" aria-hidden="true"></i>&nbsp; {{ $t('cards.list1[4]') }} </li>
+                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; {{ $t('cards.list1[5]') }} </li>
                 	</ul>
                 </p>
 			</div>
@@ -22,14 +22,14 @@
 		<div class="blog-card alt" v-if="dataPos == 'right'">
 			<div class="photo photo2"></div>
 			<div class="description">
-				<h1>Дополнительные услуги</h1>
-				<h2>Индивидуальный подход</h2>
+				<h1>{{ $t('cards.heading2') }}</h1>
+				<h2>{{ $t('cards.text2') }}</h2>
 				<p class="summary">
 					<ul>
-                		<li><i class="fa fa-users" aria-hidden="true"></i>&nbsp; Услуги опытных грузчиков</li>
-                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; Услуги монтажа / демонтажа комнатной мебели</li>
-                		<li><i class="fa fa-recycle" aria-hidden="true"></i>&nbsp; Вывоз старой мебели</li>
-                		<li><i class="fa fa-th" aria-hidden="true"></i>&nbsp; Упаковка хрупких / деликатных грузов</li>
+                		<li><i class="fa fa-users" aria-hidden="true"></i>&nbsp; {{ $t('cards.list2[0]') }} </li>
+                		<li><i class="fa fa-truck" aria-hidden="true"></i>&nbsp; {{ $t('cards.list2[1]') }} </li>
+                		<li><i class="fa fa-recycle" aria-hidden="true"></i>&nbsp; {{ $t('cards.list2[2]') }} </li>
+                		<li><i class="fa fa-th" aria-hidden="true"></i>&nbsp; {{ $t('cards.list2[3]') }} </li>
                 	</ul></p>
 			</div>
 		</div>
@@ -229,6 +229,10 @@ $yellow: #f2b632;
 		li {
 			font-size: 16px;
 			margin: 5px 0px;
+			i {
+				height: 16px;
+				width: 16px;
+			}
 		}
 
 		a {

@@ -1,12 +1,13 @@
 <template>
   <div id="app">
+
     
 
     <div class="alert hidden">
       
       <div class="alert-message">
-        <h2>Cпасибо за заказ!</h2>
-        <p>Обработка данных может занять 15-30 минут. Мы обязательно с вами свяжемся.</p>
+        <h2>{{ $t('warning.heading') }}</h2>
+        <p>{{ $t('warning.text') }}</p>
         <div class="close-cross" @click="hideAlert"><i class="fa fa-times" aria-hidden="true"></i></div>
       </div>
       <div class="alert-bg"></div>
@@ -18,22 +19,28 @@
 
 
       <div class="header">
-        <div class="banner">
-          <p class="main-line">AG Kravas</p>
-          <p class="secondaty-tagline">
-            <i class="fa fa-phone" aria-hidden="true"></i> +371 200 74 862 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <i class="fa fa-clock-o" aria-hidden="true"></i> 24/7
-            <i class="fa fa-globe" aria-hidden="true"></i> Riga, Latvia
-          </p>
-        </div>
         <div class="content">
+
+          <div class="banner">
+            <p class="main-line">AG Kravas</p>
+            <p class="secondaty-tagline">
+              <i class="fa fa-phone" aria-hidden="true"></i> +371 200 74 862 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <i class="fa fa-clock-o" aria-hidden="true"></i> 24/7
+              <i class="fa fa-globe" aria-hidden="true"></i> Riga, Latvia
+            </p>
+            <div class="lang-select">
+              <div class="flag flag-lv"@click="setLang('lv')"></div>
+              <div class="flag flag-ru"@click="setLang('ru')"></div>
+            </div>
+          </div>
+
           <div class="menu" id="menu-handle" @click="navigateTo">
-            <a class="home"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Начало</a>
-            <a class="prices"><i class="fa fa-money" aria-hidden="true"></i> Цены</a>
-            <a class="form"><i class="fa fa-address-book-o fa-fw" aria-hidden="true"></i>Оформить заказ</a>
+            <a class="home"><i class="fa fa-home fa-fw" aria-hidden="true"></i>{{ $t('menu.start')}}</a>
+            <a class="prices"><i class="fa fa-money" aria-hidden="true"></i> {{ $t('menu.prices') }}</a>
+            <a class="form"><i class="fa fa-address-book-o fa-fw" aria-hidden="true"></i>{{ $t('menu.order')}}</a>
             <a></a>
             <a></a>
-            <a class="gallery"><i class="fa fa-address-book-o fa-fw" aria-hidden="true"></i>Галерея</a>
+            <!-- <a class="gallery"><i class="fa fa-address-book-o fa-fw" aria-hidden="true"></i>Галерея</a> -->
           </div>
         </div>
       </div>
@@ -67,33 +74,33 @@
 
               <form action="backend/mail.php" method="post" target="mail_into_the_void">
 
-                <h2>Заказ Транспорта</h2>
+                <h2>{{$t('order.heading')}}</h2>
                 <div class="input-fields">
 
-                  <input type="text" name="first_name" placeholder="Имя">
-                  <input type="text" name="phone" placeholder="Телефон">
-                  <p>Маршрут:</p><br>
-                  <input id="address-input-3" class="address-input" type="text" name="where-from" placeholder="Из">
-                  <input id="address-input-4" class="address-input" type="text" name="where-to" placeholder="До">
-                  <textarea rows="5" name="message" cols="30" placeholder="Коротко о типе груза" maxlength="80"></textarea>
+                  <input type="text" name="first_name" :placeholder="$t('order.name')">
+                  <input type="text" name="phone" :placeholder="$t('order.phone')">
+                  <p>{{$t('order.route')}}</p><br>
+                  <input id="address-input-3" class="address-input" type="text" name="where-from" :placeholder="$t('order.from')">
+                  <input id="address-input-4" class="address-input" type="text" name="where-to" :placeholder="$t('order.to')">
+                  <textarea rows="5" name="message" cols="30" :placeholder="$t('order.about')" maxlength="80"></textarea>
 
                   <div class="additional-fields checkboxes">
 
                     <div class="checkbox">
                       <input type="checkbox" name="additional-checkbox-1">
-                      <label for="additional-checkbox-1">Грузчики</label>
+                      <label for="additional-checkbox-1">{{$t('order.loaders')}}</label>
                     </div>
 
                     <div class="checkbox">
                       <input type="checkbox" name="additional-checkbox-2">
-                      <label for="additional-checkbox-2">Сборка/Разборка мебели</label>
+                      <label for="additional-checkbox-2">{{$t('order.assemble')}}</label>
                     </div>
 
                   </div>
 
                 </div>
 
-                <input @click="afterSubmit" id="submit-form" type="submit" name="submit" value="Отправить">
+                <input @click="afterSubmit" id="submit-form" type="submit" name="submit" :value="$t('order.send')">
 
               </form>
 
@@ -164,6 +171,9 @@ export default {
           behavior: 'smooth' 
         });
       }
+    },
+    setLang(lang) {
+      this.$i18n.locale = lang;
     }
   }
 }
@@ -272,6 +282,19 @@ a
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   color #2c3e50
+  .lang-select
+    position absolute
+    top 35px
+    right 0px
+    .flag
+      display inline-block
+      height 24px
+      width 32px
+      cursor pointer
+      &.flag-ru
+        background url('./assets/img/flag-ru.png')
+      &.flag-lv
+        background url('./assets/img/flag-lv.png')
   .alert
     position fixed
     height 100%
@@ -382,6 +405,7 @@ a
         resize none
         margin auto
         margin-top 15px
+        max-height 80px
       .additional-fields
         vertical-align top
         white-space nowrap
@@ -467,12 +491,12 @@ a
         position absolute
         font-family 'Russo One'
         font-size 44px
-        left 12.3%
+        left 0%
         top 10px
         
       .secondaty-tagline
         position absolute
-        left 12.3%
+        left 0%
         top 65px
         font-size 21px
     
@@ -513,7 +537,7 @@ a
     height 625px
     &.line-dark
       background-color archDarkGrey
-      height 520px
+      height 553px
     &.line-light
       background-color archGrey
      

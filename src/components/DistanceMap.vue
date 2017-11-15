@@ -216,7 +216,7 @@ export default {
 <style lang="stylus">
 
 .map-wrapper
-  height 500px
+  height 530px
   width 49%
   float right
   #map

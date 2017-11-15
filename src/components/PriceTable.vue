@@ -1,19 +1,19 @@
 <template>
   <div class="pricing-container">
-    <h2>Цены на перевозки по Риге</h2>
+    <h2> {{ $t('prices.heading') }} </h2>
     <ul class="pricing-list bounce-invert">
 
       <li data-type="column">
         <header class="pricing-header">
           <div class="price">
-            <span>Услуги:</span>
+            <span>{{ $t('prices.list') }}</span>
           </div>
         </header>
         <div class="pricing-body">
           <ul class="pricing-features">
-            <li>Транспорт <br><em> + водитель</em></li>
-            <li>Транспорт <b>*</b><br><em> + 2 грузчика</em></li>
-            <li>Квартирный / Офисный / Дачный переезд <b>**</b><br><em> + 2 грузчика + транспорт </em></li>
+            <li v-html="$t('prices.transport')"></li>
+            <li v-html="$t('prices.transportWithLoaders')"></li>
+            <li v-html="$t('prices.move')"></li>
             <li></li>
           </ul>
         </div>
@@ -22,14 +22,14 @@
       <li data-type="column">
         <header class="pricing-header">
           <div class="price">
-            <span>Цены (22:00 - 9:00):</span>
+            <span>{{ $t('prices.pricesDay') }}</span>
           </div>
         </header>
         <div class="pricing-body">
           <ul class="pricing-features">
-            <li>18€ <em>/ ч.</em><br>7€ &nbsp;&nbsp;<em>/ доп. ч.</em></li>
-            <li><em>от</em> 30€ <em>/ ед.</em><br><br></li>
-            <li><em>от</em> 25€ <em>/ ч.</em></li>
+            <li v-html="$t('prices.prices[0]')"></li>
+            <li v-html="$t('prices.prices[1]')"></li>
+            <li v-html="$t('prices.prices[2]')"></li>
           </ul>
         </div>
       </li>
@@ -37,40 +37,40 @@
       <li data-type="column">
         <header class="pricing-header">
           <div class="price">
-            <span>Цены (09:00 - 22:00):</span>
+            <span>{{ $t('prices.pricesNight') }}</span>
           </div>
         </header>
         <div class="pricing-body">
           <ul class="pricing-features">
-            <li>30€ <em>/ ч.</em><br>10€ &nbsp;<em>/ доп. ч.</em></li>
-            <li><em>от</em> 50€ <em>/ ед.</em><br><br></li>
-            <li><em>от</em> 50€ <em>/ ч.</em></li>
+            <li v-html="$t('prices.prices[3]')"></li>
+            <li v-html="$t('prices.prices[4]')"></li>
+            <li v-html="$t('prices.prices[5]')"></li>
           </ul>
         </div>
       </li>
 
       <div class="footnote">
-        <b>*</b> - <em> одна единица груза</em><br>
-        <b>**</b> - <em> погрузка, разборка, упаковка</em>
+        <span v-html="$t('prices.footnotes[0]')"></span>
+        <span v-html="$t('prices.footnotes[1]')"></span>
       </div>
 
     </ul>
     <div class="result-wrapper result">
-      <h2>Калькулятор цен на перевозки из Риги</h2>
+      <h2>{{$t('prices.calcHeading')}}</h2>
       <div class="address-input-wrapper">
         <div class="line-1">
-          <label for="address-input-1">Из: </label>
-          <input id="address-input-1" class="address-input" type="text" placeholder="Адрес">
+          <label for="address-input-1">{{ $t('prices.from') }}</label>
+          <input id="address-input-1" class="address-input" type="text" :placeholder="$t('prices.address')">
         </div>
         <div class="line-2">
-          <label for="address-input-2">До: </label>
-          <input id="address-input-2" class="address-input" type="text" placeholder="Адрес">
+          <label for="address-input-2">{{ $t('prices.to') }}</label>
+          <input id="address-input-2" class="address-input" type="text" :placeholder="$t('prices.address')">
         </div>
           
       </div>
       <div class="result-text">
-        <p class="distance">Расстояние: <span></span></p>
-        <p class="price">Цена: <span></span></p>
+        <p class="distance"><span>{{ $t('prices.distance') }}</span></p>
+        <p class="price"><span>{{ $t('prices.price') }}</span></p>
       </div>
     </div>
 
@@ -100,24 +100,26 @@ export default {
 
 .pricing-container
   display inline-block
-  height 320px
+  height 325px
   width 49%
-  margin-bottom 200px
+  margin-bottom 233px
   box-shadow 0px 0px 3px 0px #000
   background #FFF
   white-space nowrap
   h2
-    font-size 28px
+    font-size 24px
     text-align center
     margin 15px 0px
   .result
     width 100%
-    height 150px
+    height 184px
     background #FFF
     box-shadow 0px 0px 3px 0px #000
     
     h2
       padding-top 5px
+      white-space normal
+      padding 5px 45px
     
     .address-input-wrapper
       display inline-block
@@ -189,24 +191,5 @@ export default {
       font-size 16px
       margin-top 10px
       padding-left 8px 
-  // .pricing-list
-  //   height 250px
-  //   marg
-  // .pricing-list
-  //   width 60%
-  //   left 0px
-  //   right 0px
-  //   margin auto
-  //   background transparent url('../assets/img/riga-skyline.jpg');
-    
-  //   &:before
-  //     top 0
-  //     left 0
-  //     right 0
-  //     bottom 0
-  //     content ''
-  //     position absolute
-  //     background rgba(90, 93, 165, .8)
-  //     background linear-gradient(to bottom, rgba(90, 93, 165, 1), rgba(0, 0, 0, .7))
 
 </style>
